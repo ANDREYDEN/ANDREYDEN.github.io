@@ -96,6 +96,22 @@ main {
     text-indent: 2em;
 }
 
+.grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cell {
+    height: 120px;
+    margin: 1em;
+}
+
+.cell img {
+    height: 100%;
+}
+
 /****************************** FOOTER *******************************/
 
 footer {
