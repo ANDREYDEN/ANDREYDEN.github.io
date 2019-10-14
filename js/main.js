@@ -1,21 +1,4 @@
-var ARTICLES = {
-    'Launchio': {
-        'date': 'October 2018',
-        'content': [
-            ['img', 'img/Launchio/thumb.jpg'],
-            ['p', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed \
-                consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris \
-                condimentum nibh, ut fermentum massa justo sit amet risus.'],
-            ['img', 'img/Launchio/thumb.jpg'],
-            ['p', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed \
-                consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris \
-                condimentum nibh, ut fermentum massa justo sit amet risus.'],
-            ['p', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed \
-                consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris \
-                    condimentum nibh, ut fermentum massa justo sit amet risus.'],
-        ]
-    }
-}
+const ARTICLES = 
 
 const replaceTextContent = ({id, text}) => {
     let element = document.getElementById(id)
