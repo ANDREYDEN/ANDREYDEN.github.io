@@ -5,12 +5,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         
+        <link rel="icon" href="img/logo.png">
         <link href="https://fonts.googleapis.com/css?family=Quicksand|Roboto+Mono|Roboto+Slab&display=swap" rel="stylesheet">
 
         <link rel="stylesheet" type="text/css" href="css/main.css"> 
         <link rel="stylesheet" type="text/css" href="css/buttons.css"> 
         <link rel="stylesheet" type="text/css" href="css/post.css"> 
-        <link rel="icon" href="img/logo.png">
+        <script src="js/main.js"></script>
         <title>Portfolio</title>
     </head>
     <body>
@@ -23,8 +24,8 @@
         </header>
         
         <main>
-            <div class="container post">
-                <h1 class="post-title">Launchio</h1>
+            <div id="post" class="container">
+                <!-- <h1 class="post-title">Launchio</h1>
                 <p class="post-date">&#128343  <i>October 2018</i></p>
                 <div class="container post-content">
                     <img src="img/Launchio/thumb.jpg" class="rounded mx-auto d-block">
@@ -40,6 +41,11 @@
                         sed
                         consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris
                         condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                </div> -->
+                <h1 id="post-title"></h1>
+                <p id="post-date"></p>
+                <div id="post-content" class="container">
+
                 </div>
             </div>
         </main>
@@ -61,7 +67,7 @@
                     </a>
                 </div>
             </div>
-            <p id="copy">&copy Andrii Denysenko, <script>document.write(new Date().getFullYear())</script></p>
+            <p id="copy"></p>
         </footer>
     </body>
 </html>

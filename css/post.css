@@ -2,7 +2,7 @@
 
 }
 
-.post {
+#post {
     flex-direction: column;
     font-family: 'Quicksand', "Times New Roman", Times, sans-serif;
     margin: auto;
@@ -11,25 +11,26 @@
     width: 60vw;
 }
 
-.post-title {
-    font-size: 2.5rem;
+#post-title {
+    font-size: 3rem;
 }
 
-.post-date {
+#post-date {
     font-family: 'Roboto Mono', monospace;
 }
 
-.post-content {
+#post-content {
     flex-direction: column;
 }
 
-.post-content > p {
+#post-content > p {
     font-size: 1.25rem;
     letter-spacing: 1pt;
     line-height: 1.75rem;
     margin: 0.5rem;
+    cursor: text;
 }
 
-.post-content > img {
+#post-content > img {
     margin: 1rem;
 }
