@@ -3,21 +3,33 @@
 }
 
 .post {
-    margin: auto;
-    width: 60vw;
-    display: flex;
     flex-direction: column;
-    align-items: center;
     font-family: 'Quicksand', "Times New Roman", Times, sans-serif;
+    margin: auto;
+    padding-top: 2rem;
+    padding-bottom: 5rem;
+    width: 60vw;
 }
 
-.post-media {
+.post-title {
+    font-size: 2.5rem;
+}
+
+.post-date {
     font-family: 'Roboto Mono', monospace;
 }
 
-.post > p {
+.post-content {
+    flex-direction: column;
+}
+
+.post-content > p {
     font-size: 1.25rem;
     letter-spacing: 1pt;
     line-height: 1.75rem;
-    margin-bottom: 1rem;
+    margin: 0.5rem;
+}
+
+.post-content > img {
+    margin: 1rem;
 }
