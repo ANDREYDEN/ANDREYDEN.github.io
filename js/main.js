@@ -7,20 +7,20 @@ const replaceTextContent = ({id, text}) => {
     return element
 }
 
-const renderNavigation = ({prev, next}) => {
+const renderNavigation = (currentIndex) => {
     let buttonPrev = document.getElementById('previous')
     let buttonNext = document.getElementById('next')
 
-    buttonPrev.innerHTML = `&#128072 ${prev}`
-    buttonNext.innerHTML = `${next} &#128073`
+    const LEN = SEQUENCE.length
+    let previousArticle = SEQUENCE[(LEN + ((currentIndex - 1) % LEN)) % LEN]
+    let nextArticle = SEQUENCE[(currentIndex + 1) % LEN]
+
+    buttonPrev.innerHTML = `&#128072 ${previousArticle}`
+    buttonNext.innerHTML = `${nextArticle} &#128073`
 }
 
 const renderArticle = ({title, articles}) => {
-    let currentIndex = SEQUENCE.indexOf(title)
-    const LEN = SEQUENCE.length
-    let previousArticle = SEQUENCE[(LEN + (currentIndex - 1) % LEN) % LEN]
-    let nextArticle = SEQUENCE[(currentIndex + 1) % LEN]
-    renderNavigation({prev: previousArticle, next: nextArticle})
+    renderNavigation(SEQUENCE.indexOf(title))
 
     replaceTextContent({
         id: 'post-title', 
