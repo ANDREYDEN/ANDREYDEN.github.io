@@ -52,7 +52,7 @@ header img {
 }
 
 #previous, #next {
-    width: 10vw;
+    min-width: 10vw;
 }
 
 main {
