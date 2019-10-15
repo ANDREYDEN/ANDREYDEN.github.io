@@ -16,10 +16,12 @@ const renderNavigation = (currentIndex) => {
     let nextArticle = SEQUENCE[(currentIndex + 1) % LEN]
 
     buttonPrev.innerHTML = `&#128072 ${previousArticle}`
+    buttonPrev.setAttribute('value', previousArticle)
     buttonNext.innerHTML = `${nextArticle} &#128073`
+    buttonNext.setAttribute('value', nextArticle)
 }
 
-const renderArticle = ({title, articles}) => {
+const renderArticle = (title) => {
     renderNavigation(SEQUENCE.indexOf(title))
 
     replaceTextContent({
@@ -28,10 +30,10 @@ const renderArticle = ({title, articles}) => {
     })
     replaceTextContent({
         id: 'post-date',
-        text: `&#128343  <i>${articles[title].date}</i>`
+        text: `&#128343  <i>${ARTICLES[title].date}</i>`
     })
     let postContent = document.getElementById('post-content')
-    postContent.content = ''
+    postContent.innerHTML = ''
     let cases = {
         'p': (val) => {
             let p = document.createElement('p')
@@ -44,11 +46,17 @@ const renderArticle = ({title, articles}) => {
             return img
         },
     }
-    articles[title].content.forEach((element) => {
+    ARTICLES[title].content.forEach((element) => {
         let key = element[0]
         let val = element[1]
         postContent.appendChild(cases[key](val))
     })
+}
+
+const onNavButtonClick = (id) => {
+    let button = document.getElementById(id)
+    let title = button.getAttribute('value')
+    renderArticle(title)
 }
 
 window.onload = async() => {
@@ -57,8 +65,16 @@ window.onload = async() => {
     ARTICLES = await ARTICLES.json()
 
     // render the first article
-    renderArticle({title: SEQUENCE[0], articles: ARTICLES})
+    renderArticle(SEQUENCE[0])
 
     // render footer
     replaceTextContent({id: 'copy', text: `&copy Andrii Denysenko, ${new Date().getFullYear()}`})
+
+    // attach event listeners
+    document
+        .getElementById('previous')
+        .addEventListener('click', () => onNavButtonClick('previous'))
+    document
+        .getElementById('next')
+        .addEventListener('click', () => onNavButtonClick('next'))
 }
