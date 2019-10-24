@@ -1,4 +1,4 @@
-const SEQUENCE = ['Launchio', 'Logeomio', 'TSP C++ Library']
+const SEQUENCE = ['Profile', 'Launchio', 'Logeomio', 'TSP C++ Library']
 
 const replaceTextContent = ({id, text}) => {
     let element = document.getElementById(id)
