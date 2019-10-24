@@ -1,0 +1,50 @@
+#post {
+    flex-direction: column;
+    font-family: 'Open Sans', "Times New Roman", Times, sans-serif;
+    margin: auto;
+    padding-top: 2rem;
+    padding-bottom: 5rem;
+    width: 60vw;
+}
+
+@media only screen and (max-width: 600px) {
+    /* Mobile version */
+    #post {
+        width: 90vw;
+    }
+}
+
+#post-title {
+    font-size: 3em;
+}
+
+#post-date {
+    font-family: 'Roboto Mono', monospace;
+}
+
+#post-content {
+    flex-direction: column;
+}
+
+#post-content > p {
+    width: 100%;
+    font-size: 1.25em;
+    letter-spacing: 1pt;
+    line-height: 1.6em;
+    margin: 0.5rem 0;
+    cursor: text;
+    text-align: left;
+}
+
+#post-content > img {
+    max-width: 80%;
+    max-height: 70vh;
+    margin: 1.5em 0;
+}
+
+code {
+    background: black;
+    color: white;
+    padding: 0.5em;
+    border-radius: 5px;
+}

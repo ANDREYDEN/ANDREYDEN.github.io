@@ -3,12 +3,56 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>ANDREYDEN</title>
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <link rel="icon" href="img/logo.png">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Mono|Roboto+Slab&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" type="text/css" href="css/main.css"> 
+        <link rel="stylesheet" type="text/css" href="css/buttons.css"> 
+        <link rel="stylesheet" type="text/css" href="css/post.css"> 
+        <script src="js/main.js"></script>
+        <title>Portfolio</title>
     </head>
-    
     <body>
-        <h1>Coming Soon</h1>
+        <header class="container">
+            <img id="logo" alt="logo" src="img/logo.png">
+            <div class="container" id="nav">
+                <button class="btn" id="previous">
+                    &#128072 <label></label>
+                </button>
+                <button class="btn" id="next">
+                    <label></label> &#128073
+                </button> 
+            </div>
+        </header>
+        
+        <main>
+            <div id="post" class="container">
+                <h1 id="post-title"></h1>
+                <p id="post-date"></p>
+                <div id="post-content" class="container"></div>
+            </div>
+        </main>
+        
+        <footer>
+            <div id="contacts" class="section">
+                <div class="container" id="contacts">
+                    <a href="https://github.com/ANDREYDEN" target="_blank" class="cell">
+                        <img src="img/logos/github.png" alt="github">
+                    </a>
+                    <a href="https://www.linkedin.com/in/andrii-denysenko-52176716b/" target="_blank" class="cell">
+                        <img src="img/logos/linkedin.png" alt="linkedin">
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=100009060491417" target="_blank" class="cell">
+                        <img src="img/logos/facebook.png" alt="facebook">
+                    </a>
+                    <a href="https://twitter.com/CuteManhole" target="_blank" class="cell">
+                        <img src="img/logos/twitter.png" alt="twitter" style="border-radius: 8px;">
+                    </a>
+                </div>
+            </div>
+            <p id="copy"></p>
+        </footer>
     </body>
 </html>
