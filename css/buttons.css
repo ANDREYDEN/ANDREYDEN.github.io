@@ -18,6 +18,10 @@
     padding: 0.5rem;
 }
 
+.btn * {
+    cursor: pointer;
+}
+
 .btn:hover {
     background: var(--btn-hover-bg-color);
 }

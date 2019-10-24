@@ -4,11 +4,19 @@
 
 #post {
     flex-direction: column;
-    font-family: 'Quicksand', "Times New Roman", Times, sans-serif;
+    font-family: 'Open Sans', "Times New Roman", Times, sans-serif;
     margin: auto;
     padding-top: 2rem;
     padding-bottom: 5rem;
     width: 60vw;
+}
+
+@media only screen and (max-width: 600px) {
+    /* Mobile version */
+    #post {
+        width: 90vw;
+    }
+
 }
 
 #post-title {
@@ -25,9 +33,9 @@
 
 #post-content > p {
     width: 100%;
-    font-size: 1.25rem;
+    font-size: 1.25em;
     letter-spacing: 1pt;
-    line-height: 1.75em;
+    line-height: 1.6em;
     margin: 0.5rem;
     cursor: text;
     text-align: left;
