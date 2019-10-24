@@ -15,9 +15,9 @@ const renderNavigation = (currentIndex) => {
     let previousArticle = SEQUENCE[(LEN + ((currentIndex - 1) % LEN)) % LEN]
     let nextArticle = SEQUENCE[(currentIndex + 1) % LEN]
 
-    buttonPrev.innerHTML = `&#128072 ${previousArticle}`
+    buttonPrev.innerHTML = `${previousArticle}`
     buttonPrev.setAttribute('value', previousArticle)
-    buttonNext.innerHTML = `${nextArticle} &#128073`
+    buttonNext.innerHTML = `${nextArticle}`
     buttonNext.setAttribute('value', nextArticle)
 }
 
@@ -35,12 +35,12 @@ const renderArticle = (title) => {
     let postContent = document.getElementById('post-content')
     postContent.innerHTML = ''
     let cases = {
-        'p': (val) => {
+        'p': val => {
             let p = document.createElement('p')
             p.appendChild(document.createTextNode(val))
             return p
         },
-        'img': (val) => {
+        'img': val => {
             let img = document.createElement('img')
             img.src = val
             return img
@@ -59,13 +59,17 @@ const onNavButtonClick = (id) => {
     renderArticle(title)
 }
 
-window.onload = async() => {
+window.onload = () => {
     // load articles
-    ARTICLES = await fetch('https://andreyden.github.io/data/articles.json')
-    ARTICLES = await ARTICLES.json()
+    fetch('data/articles.json').then(response => {
+        response.json().then(articles => {
+            ARTICLES = articles
+            
+            // render the first article
+            renderArticle(SEQUENCE[0])
+        })
+    })
 
-    // render the first article
-    renderArticle(SEQUENCE[0])
 
     // render footer
     replaceTextContent({id: 'copy', text: `&copy Andrii Denysenko, ${new Date().getFullYear()}`})

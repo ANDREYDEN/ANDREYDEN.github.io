@@ -12,7 +12,7 @@
 }
 
 #post-title {
-    font-size: 3rem;
+    font-size: 3em;
 }
 
 #post-date {
@@ -24,13 +24,17 @@
 }
 
 #post-content > p {
+    width: 100%;
     font-size: 1.25rem;
     letter-spacing: 1pt;
-    line-height: 1.75rem;
+    line-height: 1.75em;
     margin: 0.5rem;
     cursor: text;
+    text-align: left;
 }
 
 #post-content > img {
-    margin: 1rem;
+    max-width: 80%;
+    max-height: 70vh;
+    margin: 1.5em 0;
 }
