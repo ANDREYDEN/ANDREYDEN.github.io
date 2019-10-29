@@ -35,10 +35,11 @@ header {
     z-index: 1;
 }
 
-header img {
-    width: 15vh;
+#logo {
+    width: 10vh;
     margin: auto;
-    filter: invert(100%);
+    cursor: pointer;
+    z-index: 2;
 }
 
 #nav {

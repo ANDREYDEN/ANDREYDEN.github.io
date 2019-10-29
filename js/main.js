@@ -54,6 +54,9 @@ window.onload = () => {
 
     // attach event listeners
     document
+        .getElementById('logo')
+        .addEventListener('click', () => renderArticle(SEQUENCE[0]))
+    document
         .getElementById('previous')
         .addEventListener('click', () => onNavButtonClick('previous'))
     document
