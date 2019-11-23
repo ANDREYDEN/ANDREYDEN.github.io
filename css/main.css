@@ -5,6 +5,7 @@
     --nav-height: 7vh;
     --nav-pad: 1rem;
     --color-box-shadow: #00000069;
+    --border-radius: 0.3rem;
 }
 
 .testing {
@@ -42,12 +43,20 @@ header {
     z-index: 2;
 }
 
-#nav {
+a > *{
+    text-decoration: underline;
+}
+
+a:link {
+    color: black;
+}
+
+nav {
     position: fixed;
     top: 0;
     left: 0; 
     right: 0;
-    justify-content: space-between;
+    justify-content: space-between !important;
     padding: 1rem;
     height: 7vh;
 }
