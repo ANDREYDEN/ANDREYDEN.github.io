@@ -35,6 +35,7 @@ const renderArticle = title => {
         response.text().then(data => {
             let postRoot = document.getElementById('post')
             postRoot.innerHTML = data
+            window.scrollTo(0, 0)
         })
     })
 }
