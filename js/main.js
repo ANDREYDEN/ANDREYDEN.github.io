@@ -1,4 +1,13 @@
-const SEQUENCE = ['Profile', 'Launchio', 'Logeomio', 'TSP C++ Library']
+const SEQUENCE = [
+    "Profile",
+    "Graph Editor",
+    "Launchio",
+    "TSP C++ Library",
+    "Logeomio",
+    "Gravitor",
+    "Stelo",
+    "Emojillite",
+]
 
 const replaceTextContent = ({id, text}) => {
     let element = document.getElementById(id)
@@ -26,6 +35,7 @@ const renderArticle = title => {
         response.text().then(data => {
             let postRoot = document.getElementById('post')
             postRoot.innerHTML = data
+            window.scrollTo(0, 0)
         })
     })
 }
@@ -44,6 +54,9 @@ window.onload = () => {
     replaceTextContent({id: 'copy', text: `&copy Andrii Denysenko, ${new Date().getFullYear()}`})
 
     // attach event listeners
+    document
+        .getElementById('logo')
+        .addEventListener('click', () => renderArticle(SEQUENCE[0]))
     document
         .getElementById('previous')
         .addEventListener('click', () => onNavButtonClick('previous'))
