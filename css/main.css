@@ -66,6 +66,14 @@ nav {
     white-space: nowrap;
 }
 
+.glowing {
+    animation: change-color 1s ease-in-out infinite alternate;
+}
+
+@keyframes change-color {
+    100% { background: yellow; }
+}
+
 @media only screen and (max-width: 900px) {
     /* Mobile version */
     #previous > label, #next > label {

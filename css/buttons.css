@@ -7,9 +7,9 @@
 
 .btn {
     /* border: 1px solid var(--btn-border-color); */
+    background: var(--btn-bg-color);
     border: none;
     border-radius: var(--border-radius);
-    background: var(--btn-bg-color);
     box-shadow: 0px 4px 10px #00000048;
     outline: none;
     cursor: pointer;

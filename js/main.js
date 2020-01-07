@@ -40,8 +40,14 @@ const renderArticle = title => {
     })
 }
 
-const onNavButtonClick = (id) => {
+const removeGlowing = () => {
+    document.getElementById('previous').classList.remove('glowing')
+    document.getElementById('next').classList.remove('glowing')
+}
+
+const onNavButtonClick = id => () => {
     let button = document.getElementById(id)
+    removeGlowing()
     let title = button.getAttribute('value')
     renderArticle(title)
 }
@@ -59,8 +65,8 @@ window.onload = () => {
         .addEventListener('click', () => renderArticle(SEQUENCE[0]))
     document
         .getElementById('previous')
-        .addEventListener('click', () => onNavButtonClick('previous'))
+        .addEventListener('click', onNavButtonClick('previous'))
     document
         .getElementById('next')
-        .addEventListener('click', () => onNavButtonClick('next'))
+        .addEventListener('click', onNavButtonClick('next'))
 }
