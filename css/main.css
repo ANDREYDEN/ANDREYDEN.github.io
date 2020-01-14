@@ -6,6 +6,7 @@
     --nav-pad: 1rem;
     --color-box-shadow: #00000069;
     --border-radius: 0.3rem;
+    --font-main: "Roboto Mono", monospace;
 }
 
 .testing {
@@ -56,9 +57,29 @@ nav {
     top: 0;
     left: 0; 
     right: 0;
+}
+
+#nav-buttons {
     justify-content: space-between !important;
     padding: 1rem;
-    height: 7vh;
+}
+
+#content-list {
+    list-style-type: none;
+    margin-top: 3rem;
+    margin-left: 1rem;
+    font-family: var(--font-main);
+    font-size: 1.2rem;
+    display: inline-block;
+}
+
+#content-list > li {
+    cursor: pointer;
+    line-height: 2rem;
+}
+
+#content-list > li:hover {
+    padding-left: 1vw;
 }
 
 #previous, #next {
@@ -92,7 +113,7 @@ main {
 }
 
 footer {
-    font-family: 'Roboto Mono', monospace;
+    font-family: var(--font-main);
     padding: 1rem;
     background-color:#242729;
     box-shadow: 0 -5px 10px var(--color-box-shadow);

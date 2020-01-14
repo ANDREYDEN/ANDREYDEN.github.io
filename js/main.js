@@ -52,9 +52,22 @@ const onNavButtonClick = id => () => {
     renderArticle(title)
 }
 
+function onListOptionClick() {
+    renderArticle(this.childNodes[0].wholeText)
+    removeGlowing()
+}
+
 window.onload = () => {
     // render first article
     renderArticle(SEQUENCE[0])
+
+    // render content list items
+    const contentList = document.getElementById('content-list')
+    SEQUENCE.forEach(name => {
+        let li = document.createElement('li')
+        li.appendChild(document.createTextNode(name))
+        contentList.appendChild(li)
+    })
 
     // render footer
     replaceTextContent({id: 'copy', text: `&copy Andrii Denysenko, ${new Date().getFullYear()}`})
@@ -63,10 +76,21 @@ window.onload = () => {
     document
         .getElementById('logo')
         .addEventListener('click', () => renderArticle(SEQUENCE[0]))
+
     document
         .getElementById('previous')
         .addEventListener('click', onNavButtonClick('previous'))
+
     document
         .getElementById('next')
         .addEventListener('click', onNavButtonClick('next'))
+
+    document
+        .getElementById('content-list')
+        .childNodes
+        .forEach(child => {
+            if (child.nodeName === 'LI') {
+                child.addEventListener('click', onListOptionClick.bind(child))
+            }
+        })
 }
