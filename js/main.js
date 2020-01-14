@@ -9,13 +9,24 @@ const SEQUENCE = [
     "Emojillite",
 ]
 
-const replaceTextContent = ({id, text}) => {
+/**
+ * FUNCTION - replaces all of the element's content with the provided text 
+ * ARGS
+ *     id (str) - the id of the element to change
+ *     text (str) - the text to insert
+ * RETURNS
+ *      object - the resulting element 
+ */
+const insertText = ({id, text}) => {
     let element = document.getElementById(id)
     element.innerHTML = text
     return element
 }
 
-const renderNavigation = (currentIndex) => {
+/**
+ * FUNCTION - renders the navigation buttons' content depending on the current article
+ */
+function renderNavigation(currentIndex) {
     let buttonPrev = document.getElementById('previous')
     let buttonNext = document.getElementById('next')
 
@@ -29,7 +40,12 @@ const renderNavigation = (currentIndex) => {
     buttonNext.getElementsByTagName('label')[0].innerHTML = nextArticle 
 }
 
-const renderArticle = title => {
+/**
+ * FUNCTION - renders the contents of an appropriate html article
+ * ARGS
+ *      title (str) - the title of the article to be rendered
+ */
+function renderArticle(title) {
     renderNavigation(SEQUENCE.indexOf(title))
     fetch(`data/articles/${title}.html`).then(response => {
         response.text().then(data => {
@@ -40,18 +56,33 @@ const renderArticle = title => {
     })
 }
 
-const removeGlowing = () => {
+/**
+ * FUNCTION - removes the glowing animation 
+ */
+function removeGlowing() {
     document.getElementById('previous').classList.remove('glowing')
     document.getElementById('next').classList.remove('glowing')
 }
 
-const onNavButtonClick = id => () => {
-    let button = document.getElementById(id)
-    removeGlowing()
-    let title = button.getAttribute('value')
-    renderArticle(title)
+/**
+ * FUNCTION - renders an article depending on the type of the nav button clicked
+ * ARGS
+ *      id (str) - the id of the button that is being clicked
+ * RETURNS
+ *      function - the instructions to be executed
+ */
+function onNavButtonClick(id){
+    return () => {
+        let button = document.getElementById(id)
+        removeGlowing()
+        let title = button.getAttribute('value')
+        renderArticle(title)
+    }
 }
 
+/**
+ * FUNCTION - renders an article depending on the clicked list option
+ */
 function onListOptionClick() {
     renderArticle(this.childNodes[0].wholeText)
     removeGlowing()
@@ -70,7 +101,7 @@ window.onload = () => {
     })
 
     // render footer
-    replaceTextContent({id: 'copy', text: `&copy Andrii Denysenko, ${new Date().getFullYear()}`})
+    insertText({id: 'copy', text: `&copy Andrii Denysenko, ${new Date().getFullYear()}`})
 
     // attach event listeners
     document
