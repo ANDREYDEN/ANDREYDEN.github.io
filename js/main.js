@@ -17,10 +17,26 @@ const SEQUENCE = [
  * RETURNS
  *      object - the resulting element 
  */
-const insertText = ({id, text}) => {
+function insertText({id, text}) {
     let element = document.getElementById(id)
     element.innerHTML = text
     return element
+}
+
+/**
+ * 
+ */
+function makeSelected({id, className, prevTitle, curTitle}) {
+    const list = document.getElementById(id)
+    for (let el of list.childNodes) {
+        if (el.nodeName === 'LI') {
+            const elementText = el.childNodes[0].wholeText
+            el.classList.remove(className)
+            if (elementText === curTitle) {
+                el.classList.add(className)
+            }
+        }
+    }
 }
 
 /**
@@ -54,14 +70,13 @@ function renderArticle(title) {
             window.scrollTo(0, 0)
         })
     })
-}
 
-/**
- * FUNCTION - removes the glowing animation 
- */
-function removeGlowing() {
-    document.getElementById('previous').classList.remove('glowing')
-    document.getElementById('next').classList.remove('glowing')
+    // change the state of the content list
+    makeSelected({
+        id: 'content-list',
+        className: 'selected-nav',
+        curTitle: title
+    })
 }
 
 /**
@@ -74,7 +89,6 @@ function removeGlowing() {
 function onNavButtonClick(id){
     return () => {
         let button = document.getElementById(id)
-        removeGlowing()
         let title = button.getAttribute('value')
         renderArticle(title)
     }
@@ -85,7 +99,6 @@ function onNavButtonClick(id){
  */
 function onListOptionClick() {
     renderArticle(this.childNodes[0].wholeText)
-    removeGlowing()
 }
 
 window.onload = () => {
@@ -94,9 +107,12 @@ window.onload = () => {
 
     // render content list items
     const contentList = document.getElementById('content-list')
-    SEQUENCE.forEach(name => {
+    SEQUENCE.forEach((name, idx) => {
         let li = document.createElement('li')
         li.appendChild(document.createTextNode(name))
+        if (idx == 0) {
+            li.classList.add('selected-nav')
+        }
         contentList.appendChild(li)
     })
 
@@ -104,9 +120,6 @@ window.onload = () => {
     insertText({id: 'copy', text: `&copy Andrii Denysenko, ${new Date().getFullYear()}`})
 
     // attach event listeners
-    document
-        .getElementById('logo')
-        .addEventListener('click', () => renderArticle(SEQUENCE[0]))
 
     document
         .getElementById('previous')

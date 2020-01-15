@@ -16,19 +16,17 @@
     </head>
 
     <body>
+        <!-- Fixed Navigation -->
+        <button class="nav btn" id="previous">
+            <b><--</b> <label></label>
+        </button>
+        <button class="nav btn" id="next">
+            <label></label> <b>--></b>
+        </button> 
+        <ul id="content-list" class="nav"></ul>
+
         <header class="container">
-            <img id="logo" src="img/logo.svg" alt="logo">
-            <nav>
-                <div id="nav-buttons" class="container">
-                    <button class="btn glowing" id="previous">
-                        <b><--</b> <label></label>
-                    </button>
-                    <button class="btn glowing" id="next">
-                        <label></label> <b>--></b>
-                    </button> 
-                </div>
-                <ul id="content-list"></ul>
-            </nav>
+            <img id="logo" src="img/logo.svg" alt="logo" onclick="renderArticle(SEQUENCE[0])">
         </header>
         
         <main>

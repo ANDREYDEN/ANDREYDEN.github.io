@@ -44,7 +44,7 @@ header {
     z-index: 2;
 }
 
-a > *{
+a > * {
     text-decoration: underline;
 }
 
@@ -52,22 +52,16 @@ a:link {
     color: black;
 }
 
-nav {
+.nav {
     position: fixed;
-    top: 0;
-    left: 0; 
-    right: 0;
-}
-
-#nav-buttons {
-    justify-content: space-between !important;
-    padding: 1rem;
+    z-index: 2;
 }
 
 #content-list {
+    top: 15vh;
     list-style-type: none;
-    margin-top: 3rem;
-    margin-left: 1rem;
+    padding-left: 1rem;
+    padding-top: 1rem;
     font-family: var(--font-main);
     font-size: 1.2rem;
     display: inline-block;
@@ -82,17 +76,22 @@ nav {
     padding-left: 1vw;
 }
 
-#previous, #next {
-    /* width: 15vw; */
-    white-space: nowrap;
+.selected-nav {
+    font-weight: bold;
 }
 
-.glowing {
-    animation: change-color 1s ease-in-out infinite alternate;
+.selected-nav::before {
+    content: '> ';
 }
 
-@keyframes change-color {
-    100% { background: yellow; }
+#previous {
+    top: 1rem;
+    left: 1rem;
+} 
+
+#next {
+    top: 1rem;
+    right: 1rem;
 }
 
 @media only screen and (max-width: 900px) {
