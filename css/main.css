@@ -18,6 +18,7 @@ body {
     display: grid;
     grid-template-rows: 15vh auto 20vh;
     grid-template-columns: auto;
+    grid-row-gap: 2rem;
     grid-template-areas: 
         "header"
         "main"
@@ -109,6 +110,9 @@ main {
     padding: 1rem;
     background-color: #ffffff;
     grid-area: main;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .blog-post-title .blog-post-media {

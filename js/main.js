@@ -130,6 +130,10 @@ window.onload = () => {
         .addEventListener('click', onNavButtonClick('next'))
 
     document
+        .getElementById('next-article')
+        .addEventListener('click', onNavButtonClick('next'))
+
+    document
         .getElementById('content-list')
         .childNodes
         .forEach(child => {
