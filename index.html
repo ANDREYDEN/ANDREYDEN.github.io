@@ -15,17 +15,19 @@
         <script src="js/main.js"></script>
         <title>Portfolio</title>
     </head>
+
     <body>
+        <!-- Fixed Navigation -->
+        <button class="nav btn" id="previous">
+            <b><--</b> <label></label>
+        </button>
+        <button class="nav btn" id="next">
+            <label></label> <b>--></b>
+        </button> 
+        <ul id="content-list" class="nav"></ul>
+
         <header class="container">
-            <img id="logo" src="img/logo.svg" alt="logo">
-            <nav class="container">
-                <button class="btn" id="previous">
-                    <b><--</b> <label></label>
-                </button>
-                <button class="btn" id="next">
-                    <label></label> <b>--></b>
-                </button> 
-            </nav>
+            <img id="logo" src="img/logo.svg" alt="logo" onclick="renderArticle(SEQUENCE[0])">
         </header>
         
         <main>
@@ -34,6 +36,7 @@
                 <p id="post-date"></p>
                 <div id="post-content" class="container"></div>
             </div>
+            <button id="next-article" class="btn">Next Project <b>--></b></button>
         </main>
         
         <footer>

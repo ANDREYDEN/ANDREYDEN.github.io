@@ -6,6 +6,7 @@
     --nav-pad: 1rem;
     --color-box-shadow: #00000069;
     --border-radius: 0.3rem;
+    --font-main: "Roboto Mono", monospace;
 }
 
 .testing {
@@ -17,6 +18,7 @@ body {
     display: grid;
     grid-template-rows: 15vh auto 20vh;
     grid-template-columns: auto;
+    grid-row-gap: 2rem;
     grid-template-areas: 
         "header"
         "main"
@@ -43,7 +45,7 @@ header {
     z-index: 2;
 }
 
-a > *{
+a > * {
     text-decoration: underline;
 }
 
@@ -51,24 +53,55 @@ a:link {
     color: black;
 }
 
-nav {
+.nav {
     position: fixed;
-    top: 0;
-    left: 0; 
-    right: 0;
-    justify-content: space-between !important;
-    padding: 1rem;
-    height: 7vh;
+    z-index: 2;
 }
 
-#previous, #next {
-    /* width: 15vw; */
-    white-space: nowrap;
+#content-list {
+    top: 15vh;
+    list-style-type: none;
+    padding-left: 1rem;
+    padding-top: 1rem;
+    font-family: var(--font-main);
+    font-size: 1.2rem;
+    display: inline-block;
+}
+
+#content-list > li {
+    cursor: pointer;
+    line-height: 2rem;
+}
+
+#content-list > li:hover {
+    padding-left: 1vw;
+}
+
+.selected-nav {
+    font-weight: bold;
+}
+
+.selected-nav::before {
+    content: '> ';
+}
+
+#previous {
+    top: 1rem;
+    left: 1rem;
+} 
+
+#next {
+    top: 1rem;
+    right: 1rem;
 }
 
 @media only screen and (max-width: 900px) {
     /* Mobile version */
     #previous > label, #next > label {
+        display: none;
+    }
+
+    #content-list {
         display: none;
     }
 }
@@ -77,6 +110,9 @@ main {
     padding: 1rem;
     background-color: #ffffff;
     grid-area: main;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .blog-post-title .blog-post-media {
@@ -84,7 +120,7 @@ main {
 }
 
 footer {
-    font-family: 'Roboto Mono', monospace;
+    font-family: var(--font-main);
     padding: 1rem;
     background-color:#242729;
     box-shadow: 0 -5px 10px var(--color-box-shadow);
