@@ -7,8 +7,8 @@ const MAX_FORCE = 3
 const ATTRACTION_COEF = 0.01
 const REPULTION_COEF = 0.5
 const MOUSE_REPULTION_COEF = 2
-const sketch = p => {
 
+const sketch = p => {
     class Agent {
         constructor(pos) {
             this.pos = pos
@@ -69,8 +69,21 @@ const sketch = p => {
 
         display() {
             p.noStroke()
-            p.fill(0, 50)
-            p.ellipse(this.pos.x, this.pos.y, 10, 10)
+            p.fill(0, 30)
+
+            let pos = new p5.Vector(this.pos.x, this.pos.y)
+            let vel = new p5.Vector(this.vel.x, this.vel.y)
+            const top = pos.add(vel.setMag(15))
+
+            pos = new p5.Vector(this.pos.x, this.pos.y)
+            vel = new p5.Vector(this.vel.x, this.vel.y)
+            const left = pos.add(vel.rotate(-p.HALF_PI).setMag(5))
+
+            pos = new p5.Vector(this.pos.x, this.pos.y)
+            vel = new p5.Vector(this.vel.x, this.vel.y)
+            const right = pos.add(vel.rotate(p.HALF_PI).setMag(5))
+
+            p.triangle(top.x, top.y, left.x, left.y, right.x, right.y)
         }
     }
 
