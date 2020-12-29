@@ -25,6 +25,12 @@ body {
         "footer";
 }
 
+#background {
+    position: fixed;
+    z-index: -999;
+    /* display: none; */
+}
+
 .container { 
     display: flex;
     align-items: center;
@@ -108,7 +114,7 @@ a:link {
 
 main {
     padding: 1rem;
-    background-color: #ffffff;
+    background-color: #ffffff00;
     grid-area: main;
     display: flex;
     flex-direction: column;

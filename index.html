@@ -1,61 +1,70 @@
 <!DOCTYPE html>
 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        
-        <link rel="icon" href="img/logo.png">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Mono|Roboto+Slab&display=swap" rel="stylesheet">
+<html lang="en">
 
-        <link rel="stylesheet" type="text/css" href="css/main.css"> 
-        <link rel="stylesheet" type="text/css" href="css/buttons.css"> 
-        <link rel="stylesheet" type="text/css" href="css/post.css"> 
-        <script src="js/main.js"></script>
-        <title>Portfolio</title>
-    </head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Andrii Denysenko's personal portfolio. This page contains a collection of software development projects.">
 
-    <body>
-        <!-- Fixed Navigation -->
-        <button class="nav btn" id="previous">
-            <b><--</b> <label></label>
-        </button>
-        <button class="nav btn" id="next">
-            <label></label> <b>--></b>
-        </button> 
-        <ul id="content-list" class="nav"></ul>
+    <link rel="icon" href="img/logo.png">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Mono|Roboto+Slab&display=swap"
+        rel="stylesheet">
 
-        <header class="container">
-            <img id="logo" src="img/logo.svg" alt="logo" onclick="renderArticle(SEQUENCE[0])">
-        </header>
-        
-        <main>
-            <div id="post" class="container">
-                <h1 id="post-title"></h1>
-                <p id="post-date"></p>
-                <div id="post-content" class="container"></div>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/buttons.css">
+    <link rel="stylesheet" type="text/css" href="css/post.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/flocking.js"></script>
+
+    <title>Portfolio</title>
+</head>
+
+<body>
+    <div id="background"></div>
+    <!-- Fixed Navigation -->
+    <button class="nav btn" id="previous">
+        <b><--</b> <label></label>
+    </button>
+    <button class="nav btn" id="next">
+        <label></label> <b>--></b>
+    </button>
+    <ul id="content-list" class="nav"></ul>
+
+    <header class="container">
+        <img id="logo" src="img/logo.svg" alt="logo" onclick="renderArticle(SEQUENCE[0])">
+    </header>
+
+    <main>
+        <div id="post" class="container">
+            <h1 id="post-title"></h1>
+            <p id="post-date"></p>
+            <div id="post-content" class="container"></div>
+        </div>
+        <button id="next-article" class="btn">Next Project <b>--></b></button>
+    </main>
+
+    <footer>
+        <div id="contacts" class="section">
+            <div class="container" id="contacts">
+                <a href="https://github.com/ANDREYDEN" target="_blank" class="cell">
+                    <img src="img/logos/github.png" alt="github">
+                </a>
+                <a href="https://www.linkedin.com/in/andrii-denysenko-52176716b/" target="_blank" class="cell">
+                    <img src="img/logos/linkedin.png" alt="linkedin">
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=100009060491417" target="_blank" class="cell">
+                    <img src="img/logos/facebook.png" alt="facebook">
+                </a>
+                <a href="https://twitter.com/CuteManhole" target="_blank" class="cell">
+                    <img src="img/logos/twitter.png" alt="twitter" style="border-radius: 8px;">
+                </a>
             </div>
-            <button id="next-article" class="btn">Next Project <b>--></b></button>
-        </main>
-        
-        <footer>
-            <div id="contacts" class="section">
-                <div class="container" id="contacts">
-                    <a href="https://github.com/ANDREYDEN" target="_blank" class="cell">
-                        <img src="img/logos/github.png" alt="github">
-                    </a>
-                    <a href="https://www.linkedin.com/in/andrii-denysenko-52176716b/" target="_blank" class="cell">
-                        <img src="img/logos/linkedin.png" alt="linkedin">
-                    </a>
-                    <a href="https://www.facebook.com/profile.php?id=100009060491417" target="_blank" class="cell">
-                        <img src="img/logos/facebook.png" alt="facebook">
-                    </a>
-                    <a href="https://twitter.com/CuteManhole" target="_blank" class="cell">
-                        <img src="img/logos/twitter.png" alt="twitter" style="border-radius: 8px;">
-                    </a>
-                </div>
-            </div>
-            <p id="copy"></p>
-        </footer>
-    </body>
+        </div>
+        <p id="copy"></p>
+    </footer>
+</body>
+
 </html>
