@@ -7,6 +7,7 @@ const SEQUENCE = [
     "Gravitor",
     "Stelo",
     "Emojillite",
+    "Statera"
 ]
 
 /**
@@ -17,7 +18,7 @@ const SEQUENCE = [
  * RETURNS
  *      object - the resulting element 
  */
-function insertText({id, text}) {
+function insertText({ id, text }) {
     let element = document.getElementById(id)
     element.innerHTML = text
     return element
@@ -26,7 +27,7 @@ function insertText({id, text}) {
 /**
  * 
  */
-function makeSelected({id, className, prevTitle, curTitle}) {
+function makeSelected({ id, className, prevTitle, curTitle }) {
     const list = document.getElementById(id)
     for (let el of list.childNodes) {
         if (el.nodeName === 'LI') {
@@ -53,7 +54,7 @@ function renderNavigation(currentIndex) {
     buttonPrev.setAttribute('value', previousArticle)
     buttonNext.setAttribute('value', nextArticle)
     buttonPrev.getElementsByTagName('label')[0].innerHTML = previousArticle
-    buttonNext.getElementsByTagName('label')[0].innerHTML = nextArticle 
+    buttonNext.getElementsByTagName('label')[0].innerHTML = nextArticle
 }
 
 /**
@@ -86,7 +87,7 @@ function renderArticle(title) {
  * RETURNS
  *      function - the instructions to be executed
  */
-function onNavButtonClick(id){
+function onNavButtonClick(id) {
     return () => {
         let button = document.getElementById(id)
         let title = button.getAttribute('value')
@@ -117,7 +118,7 @@ window.onload = () => {
     })
 
     // render footer
-    insertText({id: 'copy', text: `&copy Andrii Denysenko, ${new Date().getFullYear()}`})
+    insertText({ id: 'copy', text: `&copy Andrii Denysenko, ${new Date().getFullYear()}` })
 
     // attach event listeners
 
