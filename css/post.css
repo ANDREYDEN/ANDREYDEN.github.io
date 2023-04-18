@@ -63,10 +63,24 @@
     border-radius: var(--border-radius);
 }
 
-.image-row {
+.carousel {
+    width: 100%;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carousel img {
+    display: none;
+}
+
+.carousel>.controls {
+    display: flex;
+    justify-content: space-between;
+}
+
+.carousel .visible {
+    display: block;
 }
 
 code {

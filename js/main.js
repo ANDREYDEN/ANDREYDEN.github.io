@@ -69,6 +69,7 @@ function renderArticle(title) {
             let postRoot = document.getElementById('post')
             postRoot.innerHTML = data
             window.scrollTo(0, 0)
+            registerEventListeners()
         })
     })
 
@@ -142,4 +143,32 @@ window.onload = () => {
                 child.addEventListener('click', onListOptionClick.bind(child))
             }
         })
+
+    registerEventListeners()
+}
+
+function registerEventListeners() {
+    const nextSlideButtons = document.getElementsByClassName('next-slide')
+    console.log(nextSlideButtons.length)
+    for (const button of nextSlideButtons) {
+        button.addEventListener('click', () => {
+            console.log('clicked')
+            const slidesRoot = button.parentElement.parentElement.getElementsByClassName('slides')[0]
+            const visibleSlide = slidesRoot.getElementsByClassName('visible')[0]
+            const nextSlide = visibleSlide.nextElementSibling ?? slidesRoot.firstElementChild
+            nextSlide.classList.add('visible')
+            visibleSlide.classList.remove('visible')
+        })
+    }
+
+    const prevSlideButtons = document.getElementsByClassName('prev-slide')
+    for (const button of prevSlideButtons) {
+        button.addEventListener('click', () => {
+            const slidesRoot = button.parentElement.parentElement.getElementsByClassName('slides')[0]
+            const visibleSlide = slidesRoot.getElementsByClassName('visible')[0]
+            const prevSlide = visibleSlide.previousElementSibling ?? slidesRoot.lastElementChild
+            prevSlide.classList.add('visible')
+            visibleSlide.classList.remove('visible')
+        })
+    }
 }
