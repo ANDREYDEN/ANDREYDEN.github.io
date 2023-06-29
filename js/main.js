@@ -149,15 +149,19 @@ window.onload = () => {
 
 function registerEventListeners() {
     const nextSlideButtons = document.getElementsByClassName('next-slide')
-    console.log(nextSlideButtons.length)
     for (const button of nextSlideButtons) {
         button.addEventListener('click', () => {
-            console.log('clicked')
             const slidesRoot = button.parentElement.parentElement.getElementsByClassName('slides')[0]
             const visibleSlide = slidesRoot.getElementsByClassName('visible')[0]
             const nextSlide = visibleSlide.nextElementSibling ?? slidesRoot.firstElementChild
             nextSlide.classList.add('visible')
             visibleSlide.classList.remove('visible')
+
+            const indicatorsRoot = button.parentElement.parentElement.getElementsByClassName('indicators')[0]
+            const activeIndicator = indicatorsRoot.getElementsByClassName('active')[0]
+            const nextIndicator = activeIndicator.nextElementSibling ?? indicatorsRoot.firstElementChild
+            nextIndicator.classList.add('active')
+            activeIndicator.classList.remove('active')
         })
     }
 
@@ -169,6 +173,12 @@ function registerEventListeners() {
             const prevSlide = visibleSlide.previousElementSibling ?? slidesRoot.lastElementChild
             prevSlide.classList.add('visible')
             visibleSlide.classList.remove('visible')
+
+            const indicatorsRoot = button.parentElement.parentElement.getElementsByClassName('indicators')[0]
+            const activeIndicator = indicatorsRoot.getElementsByClassName('active')[0]
+            const prevIndicator = activeIndicator.previousElementSibling ?? indicatorsRoot.lastElementChild
+            prevIndicator.classList.add('active')
+            activeIndicator.classList.remove('active')
         })
     }
 }
