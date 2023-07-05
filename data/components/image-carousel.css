@@ -1,0 +1,28 @@
+img {
+    display: none;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+}
+
+.indicators {
+    display: flex;
+    align-items: center;
+    margin: 0 1rem;
+}
+
+.indicator {
+    width: 0.5rem;
+    height: 0.5rem;
+    margin: 0 0.25rem;
+    border-radius: 50%;
+    background-color: #000000;
+    box-shadow: 0 0 10px var(--color-box-shadow);
+}
+
+.active {
+    width: 1rem;
+    height: 1rem;
+}
