@@ -63,26 +63,6 @@
     border-radius: var(--border-radius);
 }
 
-.carousel {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.carousel img {
-    display: none;
-}
-
-.carousel>.controls {
-    display: flex;
-    justify-content: space-between;
-}
-
-.carousel .visible {
-    display: block;
-}
-
 code {
     background: black;
     color: white !important;

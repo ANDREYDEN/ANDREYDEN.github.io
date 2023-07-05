@@ -11,11 +11,10 @@
     <p>
         Statera is a an app that helps you distribute expenses within a group.
     </p>
-    <!-- TODO: carousel -->
-    <div class="carousel">
-        <div class="slides">
-            <img class="visible"
-                src="https://user-images.githubusercontent.com/25109066/231919733-32627768-36be-4f28-b32b-f79850817cd0.png"
+
+    <image-carousel>
+        <div slot="slides">
+            <img src="https://user-images.githubusercontent.com/25109066/231919733-32627768-36be-4f28-b32b-f79850817cd0.png"
                 alt="home screen" width="250" />
             <img src="https://user-images.githubusercontent.com/25109066/231919806-5400754b-055e-4c67-af29-7f3d9b8892d8.png"
                 alt="expenses" width="250" />
@@ -26,18 +25,8 @@
             <img src="https://user-images.githubusercontent.com/25109066/231919927-f85e830f-c214-4daa-a1e6-21eb8f0bd789.png"
                 alt="payments" width="250" />
         </div>
-        <div class="controls">
-            <button class="btn prev-slide">&lt--</button>
-            <div class="indicators">
-                <div class="indicator active"></div>
-                <div class="indicator"></div>
-                <div class="indicator"></div>
-                <div class="indicator"></div>
-                <div class="indicator"></div>
-            </div>
-            <button class="btn next-slide">--&gt</button>
-        </div>
-    </div>
+    </image-carousel>
+
     <p>
         Originally, this project started as a solution to a problem my friends and I had while living together: <b>how
             do you keep track of shared expenses when there are different people buying and consuming different

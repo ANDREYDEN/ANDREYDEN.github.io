@@ -5,12 +5,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Andrii Denysenko's personal portfolio. This page contains a collection of software development projects.">
+    <meta name="description"
+        content="Andrii Denysenko's personal portfolio. This page contains a collection of software development projects.">
 
     <link rel="icon" href="img/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto+Mono:wght@400;700&family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto+Mono:wght@400;700&family=Roboto+Slab&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/buttons.css">
@@ -19,6 +22,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/flocking.js"></script>
+
+    <script src="data/components/image-carousel.js"></script>
 
     <title>Portfolio</title>
 </head>
@@ -66,6 +71,20 @@
         </div>
         <p id="copy"></p>
     </footer>
+
+    <!-- Components -->
+
+    <template id="image-carousel" class="carousel">
+        <link rel="stylesheet" href="data/components/image-carousel.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/buttons.css">
+        <slot name="slides"></slot>
+        <div class="controls">
+            <button class="btn prev-slide">&lt--</button>
+            <div class="indicators"></div>
+            <button class="btn next-slide">--&gt</button>
+        </div>
+    </template>
 </body>
 
 </html>
