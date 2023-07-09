@@ -1,41 +1,4 @@
-const articles = [
-    {
-        id: "profile",
-        title: "Profile",
-    },
-    {
-        id: "graph-editor",
-        title: "Graph Editor",
-    },
-    {
-        id: "launchio",
-        title: "Launchio",
-    },
-    {
-        id: "tsp-cpp-library",
-        title: "TSP C++ Library",
-    },
-    {
-        id: "logeomio",
-        title: "Logeomio",
-    },
-    {
-        id: "gravitor",
-        title: "Gravitor",
-    },
-    {
-        id: "stelo",
-        title: "Stelo",
-    },
-    {
-        id: "emojillite",
-        title: "Emojillite",
-    },
-    {
-        id: "statera",
-        title: "Statera",
-    }
-]
+let articles
 
 /**
  * FUNCTION - replaces all of the element's content with the provided text 
@@ -128,7 +91,10 @@ function onListOptionClick() {
     renderArticle(articleId)
 }
 
-window.onload = () => {
+window.onload = async () => {
+    const response = await fetch('js/articles.json')
+    articles = await response.json()
+
     // render first article
     renderArticle(articles[0].id)
 
