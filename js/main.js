@@ -1,14 +1,4 @@
-const SEQUENCE = [
-    "Profile",
-    "Graph Editor",
-    "Launchio",
-    "TSP C++ Library",
-    "Logeomio",
-    "Gravitor",
-    "Stelo",
-    "Emojillite",
-    "Statera"
-]
+let articles
 
 /**
  * FUNCTION - replaces all of the element's content with the provided text 
@@ -27,15 +17,16 @@ function insertText({ id, text }) {
 /**
  * 
  */
-function makeSelected({ id, className, prevTitle, curTitle }) {
-    const list = document.getElementById(id)
+function makeSelected(currentArticleId) {
+    const article = articles.find(article => article.id === currentArticleId)
+    const list = document.getElementById('content-list')
+    const className = 'selected-nav'
+
     for (let el of list.childNodes) {
-        if (el.nodeName === 'LI') {
-            const elementText = el.childNodes[0].wholeText
-            el.classList.remove(className)
-            if (elementText === curTitle) {
-                el.classList.add(className)
-            }
+        const elementText = el.childNodes[0].wholeText
+        el.classList.remove(className)
+        if (elementText === article.title) {
+            el.classList.add(className)
         }
     }
 }
@@ -43,18 +34,20 @@ function makeSelected({ id, className, prevTitle, curTitle }) {
 /**
  * FUNCTION - renders the navigation buttons' content depending on the current article
  */
-function renderNavigation(currentIndex) {
+function renderNavigation(articleId) {
+    const articleIndex = articles.findIndex(article => article.id === articleId)
+
     let buttonPrev = document.getElementById('previous')
     let buttonNext = document.getElementById('next')
 
-    const LEN = SEQUENCE.length
-    let previousArticle = SEQUENCE[(LEN + ((currentIndex - 1) % LEN)) % LEN]
-    let nextArticle = SEQUENCE[(currentIndex + 1) % LEN]
+    const LEN = articles.length
+    let previousArticle = articles[(LEN + ((articleIndex - 1) % LEN)) % LEN]
+    let nextArticle = articles[(articleIndex + 1) % LEN]
 
-    buttonPrev.setAttribute('value', previousArticle)
-    buttonNext.setAttribute('value', nextArticle)
-    buttonPrev.getElementsByTagName('label')[0].innerHTML = previousArticle
-    buttonNext.getElementsByTagName('label')[0].innerHTML = nextArticle
+    buttonPrev.setAttribute('value', previousArticle.id)
+    buttonNext.setAttribute('value', nextArticle.id)
+    buttonPrev.getElementsByTagName('label')[0].innerHTML = previousArticle.title
+    buttonNext.getElementsByTagName('label')[0].innerHTML = nextArticle.title
 }
 
 /**
@@ -62,23 +55,17 @@ function renderNavigation(currentIndex) {
  * ARGS
  *      title (str) - the title of the article to be rendered
  */
-function renderArticle(title) {
-    renderNavigation(SEQUENCE.indexOf(title))
-    fetch(`data/articles/${title}.html`).then(response => {
-        response.text().then(data => {
-            let postRoot = document.getElementById('post')
-            postRoot.innerHTML = data
-            window.scrollTo(0, 0)
-            registerEventListeners()
-        })
-    })
+async function renderArticle(articleId) {
+    const article = articles.find(article => article.id === articleId)
+    renderNavigation(articleId)
+    const response = await fetch(`data/articles/${article.title}.html`)
+    let postRoot = document.getElementById('post')
+    postRoot.innerHTML = await response.text()
+    location.href = `#${articleId}`
+    window.scrollTo(0, 0)
 
     // change the state of the content list
-    makeSelected({
-        id: 'content-list',
-        className: 'selected-nav',
-        curTitle: title
-    })
+    makeSelected(articleId)
 }
 
 /**
@@ -91,8 +78,8 @@ function renderArticle(title) {
 function onNavButtonClick(id) {
     return () => {
         let button = document.getElementById(id)
-        let title = button.getAttribute('value')
-        renderArticle(title)
+        let articleId = button.getAttribute('value')
+        renderArticle(articleId)
     }
 }
 
@@ -100,18 +87,23 @@ function onNavButtonClick(id) {
  * FUNCTION - renders an article depending on the clicked list option
  */
 function onListOptionClick() {
-    renderArticle(this.childNodes[0].wholeText)
+    const articleId = this.getAttribute('article-id')
+    renderArticle(articleId)
 }
 
-window.onload = () => {
+window.onload = async () => {
+    const response = await fetch('js/articles.json')
+    articles = await response.json()
+
     // render first article
-    renderArticle(SEQUENCE[0])
+    renderArticle(articles[0].id)
 
     // render content list items
     const contentList = document.getElementById('content-list')
-    SEQUENCE.forEach((name, idx) => {
+    articles.forEach((article, idx) => {
         let li = document.createElement('li')
-        li.appendChild(document.createTextNode(name))
+        li.appendChild(document.createTextNode(article.title))
+        li.setAttribute('article-id', article.id)
         if (idx == 0) {
             li.classList.add('selected-nav')
         }
@@ -122,6 +114,15 @@ window.onload = () => {
     insertText({ id: 'copy', text: `&copy Andrii Denysenko, ${new Date().getFullYear()}` })
 
     // attach event listeners
+
+    window.addEventListener('hashchange', () => {
+        const route = location.href.split('#')[1]
+
+        const article = articles.find(article => article.id === route)
+        if (!article) return
+
+        renderArticle(article.id)
+    })
 
     document
         .getElementById('previous')
@@ -143,6 +144,4 @@ window.onload = () => {
                 child.addEventListener('click', onListOptionClick.bind(child))
             }
         })
-
-    registerEventListeners()
 }
