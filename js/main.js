@@ -62,15 +62,14 @@ function renderNavigation(currentIndex) {
  * ARGS
  *      title (str) - the title of the article to be rendered
  */
-function renderArticle(title) {
+async function renderArticle(title) {
     renderNavigation(SEQUENCE.indexOf(title))
-    fetch(`data/articles/${title}.html`).then(response => {
-        response.text().then(data => {
-            let postRoot = document.getElementById('post')
-            postRoot.innerHTML = data
-            window.scrollTo(0, 0)
-            registerEventListeners()
-        })
+    const response = await fetch(`data/articles/${title}.html`)
+    response.text().then(data => {
+        let postRoot = document.getElementById('post')
+        postRoot.innerHTML = data
+        window.scrollTo(0, 0)
+        registerEventListeners()
     })
 
     // change the state of the content list
