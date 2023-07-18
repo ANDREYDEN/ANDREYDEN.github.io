@@ -51,9 +51,8 @@ function renderNavigation(articleId) {
 }
 
 /**
- * FUNCTION - renders the contents of an appropriate html article
- * ARGS
- *      title (str) - the title of the article to be rendered
+ * Renders the contents of an appropriate html article
+ * @param {number} articleId the id of the article to be rendered
  */
 async function renderArticle(articleId) {
     renderNavigation(articleId)
