@@ -1,4 +1,4 @@
-const FLOCK_SIZE = 100
+const FLOCK_SIZE = parseInt(window.innerWidth * window.innerHeight / 10000)
 const IMPACT_ZONE = 75
 const REPULTION_ZONE = 30
 const MOUSE_REPULTION_ZONE = 60
@@ -100,18 +100,18 @@ const sketch = p => {
             ))
         }
     }
-    
+
     p.draw = () => {
         p.background(255)
         flock.forEach(agent => {
             const neighbourhood = agent.getNeighbourhood(flock)
-    
+
             agent.align(neighbourhood)
             agent.attract(neighbourhood)
             agent.repel(neighbourhood, REPULTION_ZONE, REPULTION_COEF)
             const mouse = new Agent(new p5.Vector(p.mouseX, p.mouseY))
             agent.repel([mouse], MOUSE_REPULTION_ZONE, MOUSE_REPULTION_COEF)
-    
+
             agent.move()
             agent.passThroughWalls()
             agent.display()
