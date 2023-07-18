@@ -101,7 +101,7 @@
     {
         "id": "gravitor",
         "title": "Gravitor",
-        "description": "A mobile & PC platformer where you control the gravity direction.",
+        "description": "A mobile & PC platformer where you control the direction of gravity.",
         "start_date": "2019-08",
         "languages": [
             "C#"

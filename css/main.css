@@ -19,7 +19,7 @@
 
 body {
     display: grid;
-    grid-template-rows: 10vh auto 20vh;
+    grid-template-rows: 15vh auto 20vh;
     grid-template-columns: auto;
     grid-row-gap: 2rem;
     grid-template-areas:
@@ -48,10 +48,6 @@ header {
 }
 
 #logo {
-<<<<<<< HEAD
-=======
-    width: 7vh;
->>>>>>> 27b00ee (Fix header)
     margin: auto;
     cursor: pointer;
     z-index: 2;
