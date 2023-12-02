@@ -4,35 +4,35 @@
         "title": "Profile"
     },
     {
-        "id": "graph-editor",
-        "title": "Graph Editor"
-    },
-    {
-        "id": "launchio",
-        "title": "Launchio"
-    },
-    {
-        "id": "tsp-cpp-library",
-        "title": "TSP C++ Library"
-    },
-    {
-        "id": "logeomio",
-        "title": "Logeomio"
-    },
-    {
-        "id": "gravitor",
-        "title": "Gravitor"
-    },
-    {
-        "id": "stelo",
-        "title": "Stelo"
+        "id": "statera",
+        "title": "Statera"
     },
     {
         "id": "emojillite",
         "title": "Emojillite"
     },
     {
-        "id": "statera",
-        "title": "Statera"
+        "id": "stelo",
+        "title": "Stelo"
+    },
+    {
+        "id": "gravitor",
+        "title": "Gravitor"
+    },
+    {
+        "id": "logeomio",
+        "title": "Logeomio"
+    },
+    {
+        "id": "tsp-cpp-library",
+        "title": "TSP C++ Library"
+    },
+    {
+        "id": "launchio",
+        "title": "Launchio"
+    },
+    {
+        "id": "graph-editor",
+        "title": "Graph Editor"
     }
 ]
