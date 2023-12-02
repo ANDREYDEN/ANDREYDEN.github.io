@@ -55,6 +55,13 @@
     list-style-position: inside;
 }
 
+img.circle {
+    object-fit: cover;
+    border-radius: 50% !important;
+    height: min(30vh, 30vw);
+    width: min(30vh, 30vw);
+}
+
 #post-content>img {
     max-width: 80%;
     max-height: 70vh;
