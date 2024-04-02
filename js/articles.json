@@ -4,35 +4,148 @@
         "title": "Profile"
     },
     {
+        "id": "cocktail-grid",
+        "title": "Cocktail Grid",
+        "start_date": "2023-04",
+        "languages": [
+            "Go",
+            "Typescript"
+        ],
+        "tech": [
+            "Vue",
+            "Gin"
+        ],
+        "repo": "ANDREYDEN/cocktail-grid",
+        "demo": "http://cocktailgrid.com"
+    },
+    {
         "id": "statera",
-        "title": "Statera"
+        "title": "Statera",
+        "start_date": "2021-06",
+        "languages": [
+            "Dart",
+            "Typescript"
+        ],
+        "tech": [
+            "Flutter",
+            "Firebase"
+        ],
+        "repo": "ANDREYDEN/Statera",
+        "demo": "https://statera-0.web.app"
+    },
+    {
+        "id": "foodizzy",
+        "title": "Foodizzy",
+        "start_date": "2021-01",
+        "languages": [
+            "Typescript"
+        ],
+        "tech": [
+            "Vue",
+            "Firebase"
+        ],
+        "repo": "alisondraV/foodizzy",
+        "demo": "https://foodizzy-app.web.app/"
+    },
+    {
+        "id": "spooky-maze",
+        "title": "Spooky Maze",
+        "start_date": "2020-03",
+        "languages": [
+            "C#"
+        ],
+        "tech": [
+            "Unity"
+        ],
+        "repo": "MapleMana/SpookyMaze",
+        "demo": "https://apps.apple.com/am/app/spooky-maze/id1535892323"
     },
     {
         "id": "emojillite",
-        "title": "Emojillite"
+        "title": "Emojillite",
+        "start_date": "2019-10",
+        "languages": [
+            "Python",
+            "Javascript"
+        ],
+        "tech": [
+            "Django"
+        ],
+        "repo": "ANDREYDEN/space-apps-2019",
+        "demo": "https://emojillite.herokuapp.com/"
     },
     {
         "id": "stelo",
-        "title": "Stelo"
+        "title": "Stelo",
+        "start_date": "2019-09",
+        "languages": [
+            "Typescript",
+            "Dart"
+        ],
+        "tech": [
+            "Vue",
+            "Flutter",
+            "Firebase"
+        ],
+        "repo": "SteloSpace/Web"
     },
     {
         "id": "gravitor",
-        "title": "Gravitor"
+        "title": "Gravitor",
+        "start_date": "2019-08",
+        "languages": [
+            "C#"
+        ],
+        "tech": [
+            "Unity"
+        ],
+        "repo": "ANDREYDEN/Gravitor"
     },
     {
         "id": "logeomio",
-        "title": "Logeomio"
+        "title": "Logeomio",
+        "start_date": "2018-02",
+        "languages": [
+            "Javascript"
+        ],
+        "tech": [],
+        "repo": "ANDREYDEN/logeomio",
+        "demo": "https://logeomio.netlify.app/"
     },
     {
         "id": "tsp-cpp-library",
-        "title": "TSP C++ Library"
+        "title": "TSP C++ Library",
+        "start_date": "2018-10",
+        "languages": [
+            "C++"
+        ],
+        "tech": [],
+        "repo": "ANDREYDEN/cpp-triang-tsp"
     },
     {
         "id": "launchio",
-        "title": "Launchio"
+        "title": "Launchio",
+        "start_date": "2018-10",
+        "languages": [
+            "Python",
+            "Javascript"
+        ],
+        "tech": [
+            "Dash"
+        ],
+        "repo": "ly0va/space-app",
+        "demo": "https://launchio-932961e1943e.herokuapp.com/"
     },
     {
         "id": "graph-editor",
-        "title": "Graph Editor"
+        "title": "Graph Editor",
+        "start_date": "2018-01",
+        "languages": [
+            "Java"
+        ],
+        "tech": [
+            "Processing"
+        ],
+        "repo": "ANDREYDEN/GraphEditor"
     }
 ]
