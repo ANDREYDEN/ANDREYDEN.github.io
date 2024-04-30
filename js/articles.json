@@ -28,7 +28,8 @@
         ],
         "tech": [
             "Flutter",
-            "Firebase"
+            "Firebase",
+            "Google Cloud Vision API"
         ],
         "repo": "ANDREYDEN/Statera",
         "demo": "https://statera-0.web.app"
@@ -108,7 +109,9 @@
         "languages": [
             "Javascript"
         ],
-        "tech": [],
+        "tech": [
+            "p5.js"
+        ],
         "repo": "ANDREYDEN/logeomio",
         "demo": "https://logeomio.netlify.app/"
     },

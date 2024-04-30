@@ -79,9 +79,11 @@ async function renderArticle(articleId) {
     if (article.demo) {
         demoLink.setAttribute('href', article.demo)
     } else {
-        demoLink.className = 'hidden'
+        demoLink.className = 'disabled'
     }
 
+    const postThumbnail = document.getElementById('post-thumbnail')
+    postThumbnail.setAttribute('src', `img/${article.title}/thumb.png`)
     const postLanguages = document.getElementById('post-languages')
     postLanguages.innerHTML = ''
     for (const language of article.languages) {

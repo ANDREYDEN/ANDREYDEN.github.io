@@ -59,10 +59,6 @@ a:link {
     color: black;
 }
 
-ul {
-    list-style-type: none;
-}
-
 .nav {
     position: fixed;
     z-index: 2;
@@ -168,4 +164,9 @@ image-carousel {
 
 .visible {
     display: block;
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
 }

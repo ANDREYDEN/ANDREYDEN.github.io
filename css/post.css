@@ -64,7 +64,8 @@
     padding: 2px;
 }
 
-#post-content>img {
+#post-content>img,
+#post-thumbnail {
     max-width: 80%;
     max-height: 70vh;
     margin: 1.5em 0;
@@ -74,6 +75,10 @@
 
 #post-footer {
     align-self: stretch;
+}
+
+#post-footer ul {
+    list-style-type: none;
 }
 
 #langs-and-frameworks {
