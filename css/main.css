@@ -59,6 +59,10 @@ a:link {
     color: black;
 }
 
+ul {
+    list-style-type: none;
+}
+
 .nav {
     position: fixed;
     z-index: 2;

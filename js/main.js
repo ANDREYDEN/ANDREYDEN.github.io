@@ -83,6 +83,7 @@ async function renderArticle(articleId) {
     }
 
     const postLanguages = document.getElementById('post-languages')
+    postLanguages.innerHTML = ''
     for (const language of article.languages) {
         const languageListItem = document.createElement('li')
         postLanguages.appendChild(languageListItem)
@@ -92,6 +93,7 @@ async function renderArticle(articleId) {
     }
 
     const postTech = document.getElementById('post-tech')
+    postTech.innerHTML = ''
     for (const tech of article.tech) {
         const techListItem = document.createElement('li')
         postTech.appendChild(techListItem)
