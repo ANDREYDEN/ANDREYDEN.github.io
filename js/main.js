@@ -59,57 +59,12 @@ async function renderArticle(articleId) {
     const article = articles.find(article => article.id === articleId)
     renderNavigation(articleId)
 
-    const response = await fetch(`data/articles/${article.title}.html`)
+    const contentElement = document.getElementById('content')
 
-    if (articleId == 'profile') {
-        const post = document.getElementById('post')
-        post.innerHTML = await response.text()
-        return
-    }
-
-    const postContent = document.getElementById('post-content')
-    postContent.innerHTML = await response.text()
-
-    const postTitle = document.getElementById('post-title')
-    postTitle.innerText = article.title
-
-    const postDate = document.getElementById('post-date')
-    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-    const [year, monthNum] = article.start_date.split('-')
-    postDate.innerText = `${months[+monthNum - 1]} ${year}`
-
-    const githubLink = document.getElementById('github-link')
-    githubLink.setAttribute('href', `https://github.com/${article.repo}`)
-
-    const demoLink = document.getElementById('demo-link')
-    demoLink.className = ''
-    if (article.demo) {
-        demoLink.setAttribute('href', article.demo)
-    } else {
-        demoLink.className = 'disabled'
-    }
-
-    const postThumbnail = document.getElementById('post-thumbnail')
-    postThumbnail.setAttribute('src', `img/${article.title}/thumb.png`)
-    const postLanguages = document.getElementById('post-languages')
-    postLanguages.innerHTML = ''
-    for (const language of article.languages) {
-        const languageListItem = document.createElement('li')
-        postLanguages.appendChild(languageListItem)
-        const languageElement = document.createElement('code')
-        languageElement.textContent = language
-        languageListItem.appendChild(languageElement)
-    }
-
-    const postTech = document.getElementById('post-tech')
-    postTech.innerHTML = ''
-    for (const tech of article.tech) {
-        const techListItem = document.createElement('li')
-        postTech.appendChild(techListItem)
-        const techElement = document.createElement('code')
-        techElement.textContent = tech
-        techListItem.appendChild(techElement)
-    }
+    const post = document.createElement('project-post')
+    post.setAttribute('post-id', articleId)
+    contentElement.innerHTML = ''
+    contentElement.appendChild(post)
 
     location.href = `#${articleId}`
     window.scrollTo(0, 0)

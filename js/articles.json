@@ -6,6 +6,7 @@
     {
         "id": "cocktail-grid",
         "title": "Cocktail Grid",
+        "description": "Quickly find cocktail recipes based on the ingredients you have at home.",
         "start_date": "2023-04",
         "languages": [
             "Go",
@@ -21,6 +22,7 @@
     {
         "id": "statera",
         "title": "Statera",
+        "description": "Service to track and split expenses in a group.",
         "start_date": "2021-06",
         "languages": [
             "Dart",
@@ -37,6 +39,7 @@
     {
         "id": "foodizzy",
         "title": "Foodizzy",
+        "desscription": "App to track your food inventory.",
         "start_date": "2021-01",
         "languages": [
             "Typescript"
@@ -51,6 +54,7 @@
     {
         "id": "spooky-maze",
         "title": "Spooky Maze",
+        "description": "Mobile game where you navigate through a maze until you are left in darkness.",
         "start_date": "2020-03",
         "languages": [
             "C#"
@@ -64,6 +68,7 @@
     {
         "id": "emojillite",
         "title": "Emojillite",
+        "description": "Satellite visualizer that highlights research topics with emojis.",
         "start_date": "2019-10",
         "languages": [
             "Python",
@@ -78,6 +83,7 @@
     {
         "id": "stelo",
         "title": "Stelo",
+        "description": "Platform to share life journeys.",
         "start_date": "2019-09",
         "languages": [
             "Typescript",
@@ -93,6 +99,7 @@
     {
         "id": "gravitor",
         "title": "Gravitor",
+        "description": "A mobile & PC platformer where you control the gravity direction.",
         "start_date": "2019-08",
         "languages": [
             "C#"
@@ -105,6 +112,7 @@
     {
         "id": "logeomio",
         "title": "Logeomio",
+        "description": "A tool to generate geometric logos.",
         "start_date": "2018-02",
         "languages": [
             "Javascript"
@@ -118,6 +126,7 @@
     {
         "id": "tsp-cpp-library",
         "title": "TSP C++ Library",
+        "description": "A library to solve the Traveling Salesman Problem.",
         "start_date": "2018-10",
         "languages": [
             "C++"
@@ -128,6 +137,7 @@
     {
         "id": "launchio",
         "title": "Launchio",
+        "description": "A tool to visualize spaceship launches.",
         "start_date": "2018-10",
         "languages": [
             "Python",
@@ -142,6 +152,7 @@
     {
         "id": "graph-editor",
         "title": "Graph Editor",
+        "description": "Graph visualizer with phyical interactions between nodes.",
         "start_date": "2018-01",
         "languages": [
             "Java"
