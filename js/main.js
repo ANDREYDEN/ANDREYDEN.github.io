@@ -60,6 +60,13 @@ async function renderArticle(articleId) {
     renderNavigation(articleId)
 
     const response = await fetch(`data/articles/${article.title}.html`)
+
+    if (articleId == 'profile') {
+        const post = document.getElementById('post')
+        post.innerHTML = await response.text()
+        return
+    }
+
     const postContent = document.getElementById('post-content')
     postContent.innerHTML = await response.text()
 
