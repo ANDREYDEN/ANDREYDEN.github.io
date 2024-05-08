@@ -1,26 +1,15 @@
+import { addCommonStyles, addStylesheet } from 'utils'
+
 class ProjectPost extends HTMLElement {
     constructor() {
         super()
 
-        const template = document.getElementById('project-post')
-
         const shadowRoot = this.attachShadow({ mode: 'open' })
 
-        const mainStyleLink = document.createElement('link')
-        mainStyleLink.setAttribute('rel', 'stylesheet')
-        mainStyleLink.setAttribute('href', 'css/main.css')
-        shadowRoot.appendChild(mainStyleLink)
+        addCommonStyles(shadowRoot)
+        addStylesheet(shadowRoot, 'data/components/project-post.css')
 
-        const buttonsStyleLink = document.createElement('link')
-        buttonsStyleLink.setAttribute('rel', 'stylesheet')
-        buttonsStyleLink.setAttribute('href', 'css/buttons.css')
-        shadowRoot.appendChild(buttonsStyleLink)
-
-        const postStyleLink = document.createElement('link')
-        postStyleLink.setAttribute('rel', 'stylesheet')
-        postStyleLink.setAttribute('href', 'data/components/project-post.css')
-        shadowRoot.appendChild(postStyleLink)
-
+        const template = document.getElementById('project-post')
         shadowRoot.appendChild(template.content.cloneNode(true))
     }
 

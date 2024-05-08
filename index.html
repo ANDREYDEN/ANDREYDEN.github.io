@@ -18,12 +18,21 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/buttons.css">
 
+    <script type="importmap">
+        {
+            "imports": {
+                "main": "./js/main.js",
+                "utils": "./js/utils.js"
+            }
+        }
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
     <script src="js/main.js"></script>
+    <script type="module" src="js/utils.js"></script>
     <script src="js/flocking.js"></script>
 
-    <script src="data/components/image-carousel.js"></script>
-    <script src="data/components/project-post.js"></script>
+    <script type="module" src="data/components/image-carousel.js"></script>
+    <script type="module" src="data/components/project-post.js"></script>
 
     <title>Portfolio</title>
 </head>
@@ -71,9 +80,6 @@
     <!-- Components -->
 
     <template id="image-carousel" class="carousel">
-        <link rel="stylesheet" href="data/components/image-carousel.css">
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/buttons.css">
         <slot name="slides"></slot>
         <div class="controls">
             <button class="btn prev-slide">&lt--</button>
