@@ -56,7 +56,6 @@ function renderNavigation(articleId) {
  *      title (str) - the title of the article to be rendered
  */
 async function renderArticle(articleId) {
-    const article = articles.find(article => article.id === articleId)
     renderNavigation(articleId)
 
     const contentElement = document.getElementById('content')
@@ -98,7 +97,8 @@ function onListOptionClick() {
 
 window.onload = async () => {
     const response = await fetch('js/articles.json')
-    articles = await response.json()
+    const allArticles = await response.json()
+    articles = allArticles.filter(a => !a.hidden)
 
     // render first article
     renderArticle(articles[0].id)

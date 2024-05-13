@@ -40,7 +40,12 @@
     margin-top: 1em;
 }
 
-#post-content>p,
+#post-content>ul,
+#post-content>ol {
+    list-style-position: inside;
+}
+
+#post-content>*,
 #post-languages, 
 #post-tech {
     width: 100%;

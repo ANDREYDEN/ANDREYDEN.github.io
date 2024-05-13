@@ -14,10 +14,12 @@
         ],
         "tech": [
             "Vue",
-            "Gin"
+            "Gin",
+            "Auth0"
         ],
         "repo": "ANDREYDEN/cocktail-grid",
-        "demo": "http://cocktailgrid.com"
+        "demo": "http://cocktailgrid.com",
+        "hidden": true
     },
     {
         "id": "statera",
@@ -39,7 +41,7 @@
     {
         "id": "foodizzy",
         "title": "Foodizzy",
-        "desscription": "App to track your food inventory.",
+        "description": "App to track your food inventory.",
         "start_date": "2021-01",
         "languages": [
             "Typescript"
