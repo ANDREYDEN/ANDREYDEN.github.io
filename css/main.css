@@ -1,11 +1,14 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;   
 
     --nav-height: 7vh;
     --nav-pad: 1rem;
     --color-box-shadow: #00000069;
+    --container-background: #242729;
     --border-radius: 0.3rem;
+    --container-border-radius: 1rem;
     --font-main: "Roboto Mono", monospace;
 }
 
@@ -39,13 +42,12 @@ body {
 
 header {
     grid-area: header;
-    background-color: #242729;
+    background-color: var(--container-background);
     box-shadow: 0 5px 10px var(--color-box-shadow);
     z-index: 1;
 }
 
 #logo {
-    width: 10vh;
     margin: auto;
     cursor: pointer;
     z-index: 2;
@@ -130,7 +132,7 @@ main {
 footer {
     font-family: var(--font-main);
     padding: 1rem;
-    background-color: #242729;
+    background-color: var(--container-background);
     box-shadow: 0 -5px 10px var(--color-box-shadow);
     grid-area: footer;
 }
@@ -142,8 +144,6 @@ footer {
 
 #contacts>a>img {
     margin: 1rem;
-    width: 5vh;
-    height: 5vh;
 }
 
 #copy {
@@ -169,4 +169,11 @@ image-carousel {
 .disabled {
     pointer-events: none;
     opacity: 0.5;
+}
+
+code {
+    background: black;
+    color: white !important;
+    padding: 0.4em;
+    border-radius: 5px;
 }

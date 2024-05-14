@@ -49,7 +49,7 @@
     <ul id="content-list" class="nav"></ul>
 
     <header class="container">
-        <img id="logo" src="img/logo.svg" alt="logo" onclick="renderArticle('profile')">
+        <img id="logo" src="img/logo.svg" alt="logo" width="75px" height="75px" onclick="renderArticle('profile')">
     </header>
 
     <main>
@@ -61,16 +61,10 @@
         <div id="contacts" class="section">
             <div class="container" id="contacts">
                 <a href="https://github.com/ANDREYDEN" target="_blank" class="cell">
-                    <img src="img/logos/github.png" alt="github">
+                    <img src="img/logos/github.png" alt="github" width="50px" height="50px">
                 </a>
                 <a href="https://www.linkedin.com/in/andrii-denysenko-52176716b/" target="_blank" class="cell">
-                    <img src="img/logos/linkedin.png" alt="linkedin">
-                </a>
-                <a href="https://www.facebook.com/profile.php?id=100009060491417" target="_blank" class="cell">
-                    <img src="img/logos/facebook.png" alt="facebook">
-                </a>
-                <a href="https://twitter.com/CuteManhole" target="_blank" class="cell">
-                    <img src="img/logos/twitter.png" alt="twitter" style="border-radius: 8px;">
+                    <img src="img/logos/linkedin.png" alt="linkedin" width="50px" height="50px">
                 </a>
             </div>
         </div>
@@ -108,16 +102,16 @@
                 <h2>In a Nutshell</h2>
                 <p><i id="post-description"></i></p>
 
-                <div id="post-footer">
+                <div id="post-insides">
                     <h2>What's inside</h2>
                     <div id="langs-and-frameworks">
                         <div>
                             <h3>Languages</h3>
-                            <ul id="post-languages"></ul>
+                            <ul id="post-languages" class="list-with-tags"></ul>
                         </div>
                         <div>
                             <h3>Frameworks and other tech</h3>
-                            <ul id="post-tech"></ul>
+                            <ul id="post-tech" class="list-with-tags"></ul>
                         </div>
                     </div>
                 </div>
