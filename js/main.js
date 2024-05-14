@@ -56,11 +56,15 @@ function renderNavigation(articleId) {
  *      title (str) - the title of the article to be rendered
  */
 async function renderArticle(articleId) {
-    const article = articles.find(article => article.id === articleId)
     renderNavigation(articleId)
-    const response = await fetch(`data/articles/${article.title}.html`)
-    let postRoot = document.getElementById('post')
-    postRoot.innerHTML = await response.text()
+
+    const contentElement = document.getElementById('content')
+
+    const post = document.createElement('project-post')
+    post.setAttribute('post-id', articleId)
+    contentElement.innerHTML = ''
+    contentElement.appendChild(post)
+
     location.href = `#${articleId}`
     window.scrollTo(0, 0)
 
@@ -93,7 +97,8 @@ function onListOptionClick() {
 
 window.onload = async () => {
     const response = await fetch('js/articles.json')
-    articles = await response.json()
+    const allArticles = await response.json()
+    articles = allArticles.filter(a => !a.hidden)
 
     // render first article
     renderArticle(articles[0].id)

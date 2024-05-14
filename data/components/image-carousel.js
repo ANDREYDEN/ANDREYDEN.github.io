@@ -1,10 +1,15 @@
+import { addCommonStyles, addStylesheet } from 'utils'
+
 class ImageCarousel extends HTMLElement {
     constructor() {
         super()
 
-        const template = document.getElementById('image-carousel')
-
         const shadowRoot = this.attachShadow({ mode: 'open' })
+
+        addCommonStyles(shadowRoot)
+        addStylesheet(shadowRoot, 'data/components/image-carousel.css')
+
+        const template = document.getElementById('image-carousel')
         shadowRoot.appendChild(template.content.cloneNode(true))
 
         this.slides = this.querySelector('div[slot="slides"]')

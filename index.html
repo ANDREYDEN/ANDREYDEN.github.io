@@ -17,13 +17,22 @@
 
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/buttons.css">
-    <link rel="stylesheet" type="text/css" href="css/post.css">
 
+    <script type="importmap">
+        {
+            "imports": {
+                "main": "./js/main.js",
+                "utils": "./js/utils.js"
+            }
+        }
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
     <script src="js/main.js"></script>
+    <script type="module" src="js/utils.js"></script>
     <script src="js/flocking.js"></script>
 
-    <script src="data/components/image-carousel.js"></script>
+    <script type="module" src="data/components/image-carousel.js"></script>
+    <script type="module" src="data/components/project-post.js"></script>
 
     <title>Portfolio</title>
 </head>
@@ -40,15 +49,11 @@
     <ul id="content-list" class="nav"></ul>
 
     <header class="container">
-        <img id="logo" src="img/logo.svg" alt="logo" onclick="renderArticle(SEQUENCE[0])">
+        <img id="logo" src="img/logo.svg" alt="logo" width="75px" height="75px" onclick="renderArticle('profile')">
     </header>
 
     <main>
-        <div id="post" class="container">
-            <h1 id="post-title"></h1>
-            <p id="post-date"></p>
-            <div id="post-content" class="container"></div>
-        </div>
+        <div id="content"></div>
         <button id="next-article" class="btn">Next Project <b>--></b></button>
     </main>
 
@@ -56,16 +61,10 @@
         <div id="contacts" class="section">
             <div class="container" id="contacts">
                 <a href="https://github.com/ANDREYDEN" target="_blank" class="cell">
-                    <img src="img/logos/github.png" alt="github">
+                    <img src="img/logos/github.png" alt="github" width="50px" height="50px">
                 </a>
                 <a href="https://www.linkedin.com/in/andrii-denysenko-52176716b/" target="_blank" class="cell">
-                    <img src="img/logos/linkedin.png" alt="linkedin">
-                </a>
-                <a href="https://www.facebook.com/profile.php?id=100009060491417" target="_blank" class="cell">
-                    <img src="img/logos/facebook.png" alt="facebook">
-                </a>
-                <a href="https://twitter.com/CuteManhole" target="_blank" class="cell">
-                    <img src="img/logos/twitter.png" alt="twitter" style="border-radius: 8px;">
+                    <img src="img/logos/linkedin.png" alt="linkedin" width="50px" height="50px">
                 </a>
             </div>
         </div>
@@ -75,14 +74,49 @@
     <!-- Components -->
 
     <template id="image-carousel" class="carousel">
-        <link rel="stylesheet" href="data/components/image-carousel.css">
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/buttons.css">
         <slot name="slides"></slot>
         <div class="controls">
             <button class="btn prev-slide">&lt--</button>
             <div class="indicators"></div>
             <button class="btn next-slide">--&gt</button>
+        </div>
+    </template>
+
+    <template id="project-post">
+        <div id="post" class="container">
+            <h1 id="post-title"></h1>
+            <p id="post-date"></p>
+            <h3 id="post-links">
+                <a id="github-link" 
+                    href="" 
+                    target="_blank" 
+                    rel="noopener">
+                    GitHub <img src="img/logos/github.png" alt="github" />
+                </a> |
+                <a id="demo-link" href="" target="_blank" rel="noopener">Try it Out</a>
+            </h3>
+
+            <img src="" alt="thumbnail" id="post-thumbnail">
+
+            <div id="post-content" class="container">
+                <h2>In a Nutshell</h2>
+                <p><i id="post-description"></i></p>
+
+                <div id="post-insides">
+                    <h2>What's inside</h2>
+                    <div id="langs-and-frameworks">
+                        <div>
+                            <h3>Languages</h3>
+                            <ul id="post-languages" class="list-with-tags"></ul>
+                        </div>
+                        <div>
+                            <h3>Frameworks and other tech</h3>
+                            <ul id="post-tech" class="list-with-tags"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </template>
 </body>

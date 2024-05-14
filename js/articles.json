@@ -4,35 +4,164 @@
         "title": "Profile"
     },
     {
+        "id": "cocktail-grid",
+        "title": "Cocktail Grid",
+        "description": "Quickly find cocktail recipes based on the ingredients you have at home.",
+        "start_date": "2023-04",
+        "languages": [
+            "Go",
+            "Typescript"
+        ],
+        "tech": [
+            "Vue",
+            "Gin",
+            "Auth0"
+        ],
+        "repo": "ANDREYDEN/cocktail-grid",
+        "demo": "http://cocktailgrid.com",
+        "hidden": true
+    },
+    {
         "id": "statera",
-        "title": "Statera"
+        "title": "Statera",
+        "description": "Service to track and split expenses in a group.",
+        "start_date": "2021-06",
+        "languages": [
+            "Dart",
+            "Typescript"
+        ],
+        "tech": [
+            "Flutter",
+            "Firebase",
+            "Google Cloud Vision API"
+        ],
+        "repo": "ANDREYDEN/Statera",
+        "demo": "https://statera-0.web.app"
+    },
+    {
+        "id": "foodizzy",
+        "title": "Foodizzy",
+        "description": "App to track your food inventory.",
+        "start_date": "2021-01",
+        "languages": [
+            "Typescript"
+        ],
+        "tech": [
+            "Vue",
+            "Firebase"
+        ],
+        "repo": "alisondraV/foodizzy",
+        "demo": "https://foodizzy-app.web.app/"
+    },
+    {
+        "id": "spooky-maze",
+        "title": "Spooky Maze",
+        "description": "Mobile game where you navigate through a maze until you are left in darkness.",
+        "start_date": "2020-03",
+        "languages": [
+            "C#"
+        ],
+        "tech": [
+            "Unity"
+        ],
+        "repo": "MapleMana/SpookyMaze",
+        "demo": "https://apps.apple.com/am/app/spooky-maze/id1535892323"
     },
     {
         "id": "emojillite",
-        "title": "Emojillite"
+        "title": "Emojillite",
+        "description": "Satellite visualizer that highlights research topics with emojis.",
+        "start_date": "2019-10",
+        "languages": [
+            "Python",
+            "Javascript"
+        ],
+        "tech": [
+            "Django"
+        ],
+        "repo": "ANDREYDEN/space-apps-2019",
+        "demo": "https://emojillite.herokuapp.com/"
     },
     {
         "id": "stelo",
-        "title": "Stelo"
+        "title": "Stelo",
+        "description": "Platform to share life journeys.",
+        "start_date": "2019-09",
+        "languages": [
+            "Typescript",
+            "Dart"
+        ],
+        "tech": [
+            "Vue",
+            "Flutter",
+            "Firebase"
+        ],
+        "repo": "SteloSpace/Web"
     },
     {
         "id": "gravitor",
-        "title": "Gravitor"
+        "title": "Gravitor",
+        "description": "A mobile & PC platformer where you control the gravity direction.",
+        "start_date": "2019-08",
+        "languages": [
+            "C#"
+        ],
+        "tech": [
+            "Unity"
+        ],
+        "repo": "ANDREYDEN/Gravitor"
     },
     {
         "id": "logeomio",
-        "title": "Logeomio"
+        "title": "Logeomio",
+        "description": "A tool to generate geometric logos.",
+        "start_date": "2018-02",
+        "languages": [
+            "Javascript"
+        ],
+        "tech": [
+            "p5.js"
+        ],
+        "repo": "ANDREYDEN/logeomio",
+        "demo": "https://logeomio.netlify.app/"
     },
     {
         "id": "tsp-cpp-library",
-        "title": "TSP C++ Library"
+        "title": "TSP C++ Library",
+        "description": "A library to solve the Traveling Salesman Problem.",
+        "start_date": "2018-10",
+        "languages": [
+            "C++"
+        ],
+        "tech": [],
+        "repo": "ANDREYDEN/cpp-triang-tsp"
     },
     {
         "id": "launchio",
-        "title": "Launchio"
+        "title": "Launchio",
+        "description": "A tool to visualize spaceship launches.",
+        "start_date": "2018-10",
+        "languages": [
+            "Python",
+            "Javascript"
+        ],
+        "tech": [
+            "Dash"
+        ],
+        "repo": "ly0va/space-app",
+        "demo": "https://launchio-932961e1943e.herokuapp.com/"
     },
     {
         "id": "graph-editor",
-        "title": "Graph Editor"
+        "title": "Graph Editor",
+        "description": "Graph visualizer with phyical interactions between nodes.",
+        "start_date": "2018-01",
+        "languages": [
+            "Java"
+        ],
+        "tech": [
+            "Processing"
+        ],
+        "repo": "ANDREYDEN/GraphEditor"
     }
 ]
