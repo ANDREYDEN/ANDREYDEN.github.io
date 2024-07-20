@@ -32,13 +32,23 @@ function makeSelected(currentArticleId) {
 }
 
 /**
- * FUNCTION - renders the navigation buttons' content depending on the current article
+ * Renders the navigation buttons' content depending on the current article
+ * @param {string} articleId - the id of the article
  */
 function renderNavigation(articleId) {
     const articleIndex = articles.findIndex(article => article.id === articleId)
 
     let buttonPrev = document.getElementById('previous')
     let buttonNext = document.getElementById('next')
+
+    if (articleIndex === 0) {
+        buttonPrev.classList.add('hidden')
+        buttonNext.classList.add('hidden')
+        return
+    }
+
+    buttonPrev.classList.remove('hidden')
+    buttonNext.classList.remove('hidden')
 
     const LEN = articles.length
     let previousArticle = articles[(LEN + ((articleIndex - 1) % LEN)) % LEN]
@@ -72,11 +82,9 @@ async function renderArticle(articleId) {
 }
 
 /**
- * FUNCTION - renders an article depending on the type of the nav button clicked
- * ARGS
- *      id (str) - the id of the button that is being clicked
- * RETURNS
- *      function - the instructions to be executed
+ * Renders an article depending on the type of the nav button clicked
+ * @param {'next' | 'previous'} id the id of the button that is being clicked
+ * @returns {() => void} navigation handler
  */
 function onNavButtonClick(id) {
     return () => {
