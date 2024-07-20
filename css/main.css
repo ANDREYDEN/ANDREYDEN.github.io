@@ -79,6 +79,11 @@ a:link {
 #content-list>li {
     cursor: pointer;
     line-height: 2rem;
+    text-decoration: none;
+}
+
+#content-list a {
+    text-decoration: none;
 }
 
 #content-list>li:hover {
