@@ -94,6 +94,16 @@ function handleRouteChange() {
     renderArticle(selectedArticleId)
 }
 
+function toggleAnimation() {
+    const background = document.getElementById('background')
+    const isHidden = background.classList.contains('hidden')
+    if (isHidden) {
+        background.classList.remove('hidden')
+    } else {
+        background.classList.add('hidden')
+    }
+}
+
 window.onload = async () => {
     const response = await fetch('js/articles.json')
     const allArticles = await response.json()
@@ -106,4 +116,6 @@ window.onload = async () => {
 
     // attach event listeners
     window.addEventListener('hashchange', handleRouteChange)
+
+    document.getElementById('animation-toggle').addEventListener('click', toggleAnimation)
 }
