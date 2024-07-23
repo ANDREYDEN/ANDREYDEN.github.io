@@ -47,30 +47,39 @@
         <label></label> <b>--></b>
     </a>
     <ul id="content-list" class="nav"></ul>
-    <button id="animation-toggle" class="btn">An.</button>
+    <button id="settings-button" class="btn">S.</button>
+    <dialog id="settings">
+        <button id="close-settings" class="btn">X</button>
+        <h1>Settings</h1>
+        <input type="checkbox" name="animation-toggle" id="animation-toggle">
+            <label>Background Animations</label>
+        </input> 
+    </dialog>
 
-    <header class="container">
-        <img id="logo" src="img/logo.svg" alt="logo" width="75px" height="75px" onclick="renderArticle('profile')">
-    </header>
+    <div id="page-content">
+        <header class="container">
+            <img id="logo" src="img/logo.svg" alt="logo" width="75px" height="75px" onclick="renderArticle('profile')">
+        </header>
 
-    <main>
-        <div id="content"></div>
-        <a id="next-article" class="btn">Next Project <b>--></b></a>
-    </main>
+        <main>
+            <div id="content"></div>
+            <a id="next-article" class="btn">Next Project <b>--></b></a>
+        </main>
 
-    <footer>
-        <div id="contacts" class="section">
-            <div class="container" id="contacts">
-                <a href="https://github.com/ANDREYDEN" target="_blank" class="cell">
-                    <img src="img/logos/github.png" alt="github" width="50px" height="50px">
-                </a>
-                <a href="https://www.linkedin.com/in/andrii-denysenko-52176716b/" target="_blank" class="cell">
-                    <img src="img/logos/linkedin.png" alt="linkedin" width="50px" height="50px">
-                </a>
+        <footer>
+            <div id="contacts" class="section">
+                <div class="container" id="contacts">
+                    <a href="https://github.com/ANDREYDEN" target="_blank" class="cell">
+                        <img src="img/logos/github.png" alt="github" width="50px" height="50px">
+                    </a>
+                    <a href="https://www.linkedin.com/in/andrii-denysenko-52176716b/" target="_blank" class="cell">
+                        <img src="img/logos/linkedin.png" alt="linkedin" width="50px" height="50px">
+                    </a>
+                </div>
             </div>
-        </div>
-        <p id="copy"></p>
-    </footer>
+            <p id="copy"></p>
+        </footer>
+    </div>
 
     <!-- Components -->
 

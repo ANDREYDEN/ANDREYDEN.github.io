@@ -118,4 +118,16 @@ window.onload = async () => {
     window.addEventListener('hashchange', handleRouteChange)
 
     document.getElementById('animation-toggle').addEventListener('click', toggleAnimation)
+
+    /** @type {HTMLDialogElement} */
+    const settingsDialog = document.getElementById('settings')
+
+    document.getElementById('settings-button').addEventListener('click', () => {
+        settingsDialog.showModal()
+    })
+
+    document.getElementById('close-settings').addEventListener('click', () => {
+        settingsDialog.close()
+    })
+
 }
