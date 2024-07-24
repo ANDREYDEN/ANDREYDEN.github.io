@@ -6,23 +6,23 @@
 }
 
 .btn {
-    /* border: 1px solid var(--btn-border-color); */
     background: var(--btn-bg-color);
     border: none;
     border-radius: var(--border-radius);
     box-shadow: 0px 4px 10px #00000048;
     outline: none;
     cursor: pointer;
-    font-family: var(--font-main);
     font-size: 1.2rem;
     padding: 0.5rem;
     white-space: nowrap;
     text-decoration: none;
+    font-family: var(--secondary-font);
 }
 
 .btn * {
     cursor: pointer;
     text-decoration: none;
+    font-family: var(--secondary-font);
 }
 
 .btn:hover {

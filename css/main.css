@@ -9,7 +9,8 @@
     --container-background: #242729;
     --border-radius: 0.3rem;
     --container-border-radius: 1rem;
-    --font-main: "Roboto Mono", monospace;
+    --secondary-font: "Roboto Mono", monospace;
+    font-family: 'Open Sans', "Times New Roman", Times, sans-serif;
 }
 
 .testing {
@@ -71,9 +72,12 @@ a:link {
     list-style-type: none;
     padding-left: 1rem;
     padding-top: 1rem;
-    font-family: var(--font-main);
     font-size: 1.2rem;
     display: inline-block;
+}
+
+#content-list * {
+    font-family: var(--secondary-font);
 }
 
 #content-list>li {
@@ -116,19 +120,24 @@ a:link {
     left: 1rem;
 }
 
-#settings {
-    padding: 1rem;
-    top: 50%;
-    left: 50%;
-    /* display: flex;
-    flex-direction: column;
-    align-items: center; */
+dialog {
+    min-width: 30vw;
+    padding: 2rem;
+    margin: auto;
+    border-radius: var(--border-radius);
 }
 
-#close-settings {
+dialog > h1 {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+#dialog-close {
     position: absolute;
     top: 0.5rem;
     right: 0.5rem;
+    width: 40px;
+    height: 40px;
 }
 
 #settings::backdrop {
@@ -163,11 +172,14 @@ main {
 }
 
 footer {
-    font-family: var(--font-main);
     padding: 1rem;
     background-color: var(--container-background);
     box-shadow: 0 -5px 10px var(--color-box-shadow);
     grid-area: footer;
+}
+
+footer * {
+    font-family: var(--secondary-font);
 }
 
 #contacts {

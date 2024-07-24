@@ -42,8 +42,8 @@ function renderNavigation() {
     buttonPrev.setAttribute('href', `#${previousArticle.id}`)
     buttonNext.setAttribute('href', `#${nextArticle.id}`)
     bottomButtonNext.setAttribute('href', `#${nextArticle.id}`)
-    buttonPrev.getElementsByTagName('label')[0].innerHTML = previousArticle.title
-    buttonNext.getElementsByTagName('label')[0].innerHTML = nextArticle.title
+    buttonPrev.getElementsByTagName('span')[0].innerHTML = previousArticle.title
+    buttonNext.getElementsByTagName('span')[0].innerHTML = nextArticle.title
 }
 
 /**
@@ -126,7 +126,7 @@ window.onload = async () => {
         settingsDialog.showModal()
     })
 
-    document.getElementById('close-settings').addEventListener('click', () => {
+    document.getElementById('dialog-close').addEventListener('click', () => {
         settingsDialog.close()
     })
 

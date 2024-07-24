@@ -17,6 +17,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/buttons.css">
+    <link rel="stylesheet" type="text/css" href="css/inputs.css">
 
     <script type="importmap">
         {
@@ -41,19 +42,26 @@
     <div id="background"></div>
     <!-- Fixed Navigation -->
     <a class="nav btn" id="previous">
-        <b><--</b> <label></label>
+        <b><--</b> <span></span>
     </a>
     <a class="nav btn" id="next">
-        <label></label> <b>--></b>
+        <span></span> <b>--></b>
     </a>
     <ul id="content-list" class="nav"></ul>
-    <button id="settings-button" class="btn">S.</button>
+    <button id="settings-button" class="btn">
+        <img src="img/icons/settings.svg" alt="settings" width="32px" height="32px">
+    </button>
     <dialog id="settings">
-        <button id="close-settings" class="btn">X</button>
         <h1>Settings</h1>
-        <input type="checkbox" name="animation-toggle" id="animation-toggle">
-            <label>Background Animations</label>
-        </input> 
+        <div id="dialog-body">
+            <button id="dialog-close" class="btn">
+                <img src="img/icons/close.svg" alt="close" width="16px" height="16px">
+            </button>
+            <label for="animation-toggle">
+                <input type="checkbox" name="animation-toggle" id="animation-toggle" autofocus />
+                Background Animations
+            </label>
+        </div>
     </dialog>
 
     <div id="page-content">
