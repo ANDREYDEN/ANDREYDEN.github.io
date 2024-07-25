@@ -96,10 +96,24 @@ function handleRouteChange() {
 
 function toggleAnimation() {
     const background = document.getElementById('background')
-    const isHidden = background.classList.contains('hidden')
-    if (isHidden) {
+    const wasHidden = background.classList.contains('hidden')
+    if (wasHidden) {
         background.classList.remove('hidden')
     } else {
+        background.classList.add('hidden')
+    }
+    localStorage.setItem('bg-animation-hidden', !wasHidden)
+}
+
+function loadFromLocalStorage() {
+    const isBackgroundHidden = localStorage.getItem('bg-animation-hidden') === 'true'
+
+    /** @type {HTMLInputElement} */
+    const backgroundSetting = document.getElementById('animation-toggle')
+    backgroundSetting.checked = !isBackgroundHidden
+
+    const background = document.getElementById('background')
+    if (isBackgroundHidden) {
         background.classList.add('hidden')
     }
 }
@@ -109,6 +123,7 @@ window.onload = async () => {
     const allArticles = await response.json()
     articles = allArticles.filter(a => !a.hidden)
 
+    loadFromLocalStorage()
     handleRouteChange()
 
     // render footer
