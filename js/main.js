@@ -130,4 +130,10 @@ window.onload = async () => {
         settingsDialog.close()
     })
 
+    document.querySelector('dialog').addEventListener('click', (e) => {
+        const backdropClicked = e.target === e.currentTarget
+        if (backdropClicked) {
+            settingsDialog.close()
+        }
+    })
 }

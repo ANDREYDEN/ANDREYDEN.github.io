@@ -122,14 +122,18 @@ a:link {
 
 dialog {
     min-width: 30vw;
-    padding: 2rem;
+    padding: 0;
     margin: auto;
     border-radius: var(--border-radius);
+    outline: none;
 }
 
-dialog > h1 {
-    width: 100%;
+dialog h1 {
     margin-bottom: 1rem;
+}
+
+#dialog-body {
+    padding: 2rem;
 }
 
 #dialog-close {
