@@ -22,10 +22,6 @@ img.circle {
     border-radius: var(--border-radius);
 }
 
-/* #post>img {
-    height: 33vw;
-} */
-
 /* Mobile version */
 @media only screen and (max-width: 600px) {
     #post {
@@ -41,8 +37,8 @@ img.circle {
     font-size: 3em;
 }
 
-#post-date {
-    font-family: 'Roboto Mono', monospace;
+#post-date, #occupation{
+    font-family: var(--secondary-font);
 }
 
 #post-links {
