@@ -34,6 +34,7 @@
 
     <script type="module" src="data/components/image-carousel.js"></script>
     <script type="module" src="data/components/project-post.js"></script>
+    <script type="module" src="data/components/collapsible-section.js"></script>
 
     <title>Portfolio</title>
 </head>
@@ -134,7 +135,15 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </template>
 
+    <template id="collapsible-section">
+            <button id="collapser">
+                <slot name="title">Section Title</slot>
+            </button>
+        <div id="collapsible-content">
+            <slot name="content">Lorem Ipsum</slot>
         </div>
     </template>
 </body>
