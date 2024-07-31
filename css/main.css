@@ -53,6 +53,15 @@ header {
     z-index: 2;
 }
 
+h2 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+h3 {
+    margin-top: 0.5rem;
+}
+
 a>* {
     text-decoration: underline;
 }
@@ -148,19 +157,6 @@ dialog h1 {
     opacity: 0.5;
 }
 
-@media only screen and (max-width: 900px) {
-
-    /* Mobile version */
-    #previous>label,
-    #next>label {
-        display: none;
-    }
-
-    #content-list {
-        display: none;
-    }
-}
-
 main {
     padding: 1rem;
     background-color: #ffffff00;
@@ -168,10 +164,6 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.blog-post-title .blog-post-media {
-    text-align: center;
 }
 
 footer {
@@ -225,4 +217,20 @@ code {
     color: white !important;
     padding: 0.1em 0.4em;
     border-radius: 5px;
+}
+
+/* Mobile version */
+@media only screen and (max-width: 900px) {
+    html {
+        font-size: 14px;
+    }
+
+    #previous>label,
+    #next>label {
+        display: none;
+    }
+
+    #content-list {
+        display: none;
+    }
 }
