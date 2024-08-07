@@ -10,6 +10,8 @@
     --border-radius: 0.3rem;
     --container-border-radius: 1rem;
     --secondary-font: "Roboto Mono", monospace;
+    --sm-width: 640px;
+    --md-width: 768px;
     font-family: 'Open Sans', "Times New Roman", Times, sans-serif;
 }
 

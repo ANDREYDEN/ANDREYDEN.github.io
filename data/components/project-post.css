@@ -6,11 +6,18 @@
     width: 60vw;
 }
 
-img.circle {
+#profile-picture {
     object-fit: cover;
     border-radius: 50% !important;
     height: min(30vh, 30vw);
     width: min(30vh, 30vw);
+}
+
+@media only screen and (max-width: 640px) {
+    #profile-picture {
+        height: min(60vh, 60vw);
+        width: min(60vh, 60vw);
+    }
 }
 
 #post>img, #post-content>img {
@@ -102,7 +109,8 @@ img.circle {
 }
 
 .list-with-tags {
-    list-style-position: inside;
+    padding: 0 !important;
+    margin: 0 !important;
     display: flex;
     flex-wrap: wrap;
 }
@@ -112,7 +120,7 @@ img.circle {
 }
 
 /* Mobile version */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 640px) {
     #post {
         width: 90vw;
     }
