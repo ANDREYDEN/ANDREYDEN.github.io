@@ -28,7 +28,7 @@
         }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
-    <script src="js/main.js"></script>
+    <script type="module" src="js/main.js"></script>
     <script type="module" src="js/utils.js"></script>
     <script src="js/flocking.js"></script>
 
@@ -48,7 +48,8 @@
     <a class="nav btn" id="next">
         <span></span> <b>--></b>
     </a>
-    <ul id="content-list" class="nav"></ul>
+    <ul popover id="content-list" class="nav"></ul>
+    <button popovertarget="content-list" id="content-list-button" class="btn">&#x2630</button>
     <button id="settings-button" class="btn">
         <img src="img/icons/settings.svg" alt="settings" width="32px" height="32px">
     </button>

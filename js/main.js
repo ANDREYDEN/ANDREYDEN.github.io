@@ -1,5 +1,7 @@
+import { toggleClass } from "utils"
+
 /** @type {any[]} */
-let articles
+export let articles
 let selectedArticleId
 
 /**
@@ -95,14 +97,8 @@ function handleRouteChange() {
 }
 
 function toggleAnimation() {
-    const background = document.getElementById('background')
-    const wasHidden = background.classList.contains('hidden')
-    if (wasHidden) {
-        background.classList.remove('hidden')
-    } else {
-        background.classList.add('hidden')
-    }
-    localStorage.setItem('bg-animation-hidden', !wasHidden)
+    const isHidden = toggleClass('background', 'hidden')
+    localStorage.setItem('bg-animation-hidden', isHidden)
 }
 
 function loadFromLocalStorage() {
@@ -140,6 +136,12 @@ window.onload = async () => {
     document.getElementById('settings-button').addEventListener('click', () => {
         settingsDialog.showModal()
     })
+
+    // document.getElementById('content-list-button').addEventListener('click', () => {
+    //     const contentList = document.getElementById('content-list')
+    //     contentList.togglePopover()
+    //     toggleClass('content-list', 'visible')
+    // })
 
     document.getElementById('dialog-close').addEventListener('click', () => {
         settingsDialog.close()

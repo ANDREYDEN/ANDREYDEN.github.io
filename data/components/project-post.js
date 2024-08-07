@@ -1,4 +1,5 @@
 import { addCommonStyles, addStylesheet } from 'utils'
+import { articles } from 'main'
 
 class ProjectPost extends HTMLElement {
     constructor() {
