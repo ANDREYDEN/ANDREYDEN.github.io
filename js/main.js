@@ -3,6 +3,8 @@ import { toggleClass } from "utils"
 /** @type {any[]} */
 export let articles
 let selectedArticleId
+/** @type {HTMLElement} */
+let contentList
 
 /**
  * FUNCTION - replaces all of the element's content with the provided text 
@@ -31,15 +33,17 @@ function renderNavigation() {
     if (articleIndex === 0) {
         buttonPrev.classList.add('hidden')
         buttonNext.classList.add('hidden')
+        bottomButtonNext.classList.add('hidden')
         return
     }
 
     buttonPrev.classList.remove('hidden')
     buttonNext.classList.remove('hidden')
+    bottomButtonNext.classList.remove('hidden')
 
     const LEN = articles.length
-    let previousArticle = articles[(LEN + ((articleIndex - 1) % LEN)) % LEN]
-    let nextArticle = articles[(articleIndex + 1) % LEN]
+    const previousArticle = articles[(LEN + ((articleIndex - 1) % LEN)) % LEN]
+    const nextArticle = articles[(articleIndex + 1) % LEN]
 
     buttonPrev.setAttribute('href', `#${previousArticle.id}`)
     buttonNext.setAttribute('href', `#${nextArticle.id}`)
@@ -75,6 +79,12 @@ function renderContentList() {
         a.innerText = article.title
 
         a.setAttribute('href', `#${article.id}`)
+        a.addEventListener('click', () => {
+            const isPopover = contentList.hasAttribute('popover')
+            if (isPopover) {
+                contentList.togglePopover()
+            }
+        })
         if (article.id === selectedArticleId) {
             li.classList.add('selected-nav')
         }
@@ -94,6 +104,13 @@ function handleRouteChange() {
     selectedArticleId = article?.id ?? firstArticleId
 
     renderArticle(selectedArticleId)
+}
+
+function handleWindowResize() {
+    const isMediumWidth = window.innerWidth <= 900
+    if (isMediumWidth ^ contentList.hasAttribute('popover')) {
+        contentList.toggleAttribute('popover')
+    }
 }
 
 function toggleAnimation() {
@@ -122,11 +139,16 @@ window.onload = async () => {
     loadFromLocalStorage()
     handleRouteChange()
 
+    contentList = document.getElementById('content-list')
+
     // render footer
     insertText({ id: 'copy', text: `&copy Andrii Denysenko, ${new Date().getFullYear()}` })
 
     // attach event listeners
     window.addEventListener('hashchange', handleRouteChange)
+
+    window.addEventListener('resize', handleWindowResize)
+    handleWindowResize()
 
     document.getElementById('animation-toggle').addEventListener('click', toggleAnimation)
 
@@ -136,12 +158,6 @@ window.onload = async () => {
     document.getElementById('settings-button').addEventListener('click', () => {
         settingsDialog.showModal()
     })
-
-    // document.getElementById('content-list-button').addEventListener('click', () => {
-    //     const contentList = document.getElementById('content-list')
-    //     contentList.togglePopover()
-    //     toggleClass('content-list', 'visible')
-    // })
 
     document.getElementById('dialog-close').addEventListener('click', () => {
         settingsDialog.close()
