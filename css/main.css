@@ -120,28 +120,6 @@ a:link {
     content: '> ';
 }
 
-#previous {
-    top: 1rem;
-    left: 1rem;
-}
-
-#next {
-    top: 1rem;
-    right: 1rem;
-}
-
-#settings-button {
-    bottom: 1rem;
-    left: 1rem;
-}
-
-#content-list-button {
-    display: none;
-    top: 1rem;
-    left: 1rem;
-    font-size: 1.75rem;
-}
-
 dialog {
     min-width: 30vw;
     padding: 0;
@@ -204,13 +182,6 @@ footer * {
     color: #ffffff;
 }
 
-image-carousel {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .hidden {
     display: none;
 }
@@ -238,15 +209,7 @@ code {
         font-size: 14px;
     }
     
-    #previous, #next {
-        display: none;
-    }
-
     #content-list {
         border: 1px solid black;
-    }
-
-    #content-list-button {
-        display: block;
     }
 }

@@ -5,6 +5,8 @@ export let articles
 let selectedArticleId
 /** @type {HTMLElement} */
 let contentList
+/** @type {HTMLElement} */
+let upButton
 
 /**
  * FUNCTION - replaces all of the element's content with the provided text 
@@ -113,6 +115,13 @@ function handleWindowResize() {
     }
 }
 
+function handleScroll() {
+    const scrolledDown = window.scrollY > 500
+    if (scrolledDown ^ upButton.classList.contains('visible')) {
+        toggleClass('up-button', 'visible')
+    }
+}
+
 function toggleAnimation() {
     const isHidden = toggleClass('background', 'hidden')
     localStorage.setItem('bg-animation-hidden', isHidden)
@@ -150,6 +159,8 @@ window.onload = async () => {
     window.addEventListener('resize', handleWindowResize)
     handleWindowResize()
 
+    window.addEventListener('scroll', handleScroll)
+
     document.getElementById('animation-toggle').addEventListener('click', toggleAnimation)
 
     /** @type {HTMLDialogElement} */
@@ -168,5 +179,10 @@ window.onload = async () => {
         if (backdropClicked) {
             settingsDialog.close()
         }
+    })
+
+    upButton = document.getElementById('up-button')
+    upButton.addEventListener('click', () => {
+        window.scrollTo({ top: 0 })
     })
 }
