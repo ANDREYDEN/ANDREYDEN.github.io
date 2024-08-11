@@ -6,17 +6,27 @@
     outline: none;
     border: none;
     cursor: pointer;
+    margin-left: -2.3rem;
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 
 #collapser::before {
     font-family: var(--secondary-font) !important;
-    font-size: 3rem;
+    font-size: 2rem;
     line-height: 2rem;
-    content: "\02EF";
+    content: "^";
+    margin-top: -1.5rem;
+    height: 0;
+}
+
+:host {
+    margin-top: 1rem !important;
 }
 
 :host([collapsed]) > #collapser::before {
-    content: "\02F0";
+    transform: rotate(180deg);
+    margin-top: 1.5rem;
 }
 
 #collapsible-content  {
@@ -25,4 +35,12 @@
 
 :host([collapsed]) #collapsible-content {
     display: none !important;
+}
+
+/* Mobile version */
+@media only screen and (max-width: 900px) {
+    #collapser {
+        margin-left: 0;
+    }
+
 }
