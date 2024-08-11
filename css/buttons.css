@@ -50,9 +50,9 @@
 }
 
 #settings-button {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
 }
 
 #content-list-button {
@@ -79,5 +79,12 @@
 
     #content-list-button {
         display: block;
+    }
+
+    #settings-button {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        left: auto;
     }
 }
