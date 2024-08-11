@@ -17,6 +17,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/buttons.css">
+    <link rel="stylesheet" type="text/css" href="css/inputs.css">
 
     <script type="importmap">
         {
@@ -27,12 +28,13 @@
         }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
-    <script src="js/main.js"></script>
+    <script type="module" src="js/main.js"></script>
     <script type="module" src="js/utils.js"></script>
     <script src="js/flocking.js"></script>
 
     <script type="module" src="data/components/image-carousel.js"></script>
     <script type="module" src="data/components/project-post.js"></script>
+    <script type="module" src="data/components/collapsible-section.js"></script>
 
     <title>Portfolio</title>
 </head>
@@ -40,36 +42,57 @@
 <body>
     <div id="background"></div>
     <!-- Fixed Navigation -->
-    <button class="nav btn" id="previous">
-        <b><--</b> <label></label>
+    <a class="nav btn" id="previous">
+        <b><--</b> <span></span>
+    </a>
+    <a class="nav btn" id="next">
+        <span></span> <b>--></b>
+    </a>
+    <ul popover id="content-list" class="nav"></ul>
+    <button popovertarget="content-list" id="content-list-button" class="btn icon-button">&#x2630</button>
+    <button id="settings-button" class="btn icon-button">
+        <img src="img/icons/settings.svg" alt="settings" width="32px" height="32px">
     </button>
-    <button class="nav btn" id="next">
-        <label></label> <b>--></b>
-    </button>
-    <ul id="content-list" class="nav"></ul>
-
-    <header class="container">
-        <img id="logo" src="img/logo.svg" alt="logo" width="75px" height="75px" onclick="renderArticle('profile')">
-    </header>
-
-    <main>
-        <div id="content"></div>
-        <button id="next-article" class="btn">Next Project <b>--></b></button>
-    </main>
-
-    <footer>
-        <div id="contacts" class="section">
-            <div class="container" id="contacts">
-                <a href="https://github.com/ANDREYDEN" target="_blank" class="cell">
-                    <img src="img/logos/github.png" alt="github" width="50px" height="50px">
-                </a>
-                <a href="https://www.linkedin.com/in/andrii-denysenko-52176716b/" target="_blank" class="cell">
-                    <img src="img/logos/linkedin.png" alt="linkedin" width="50px" height="50px">
-                </a>
-            </div>
+    <button id="up-button" class="btn icon-button">^</button>
+    <dialog id="settings">
+        <div id="dialog-body">
+            <h1>Settings</h1>
+            <button id="dialog-close" class="btn">
+                <img src="img/icons/close.svg" alt="close" width="16px" height="16px">
+            </button>
+            <label for="animation-toggle">
+                <input type="checkbox" name="animation-toggle" id="animation-toggle" autofocus />
+                Background Animations
+            </label>
         </div>
-        <p id="copy"></p>
-    </footer>
+    </dialog>
+
+    <div id="page-content">
+        <header class="container">
+            <a href="/#profile">
+                <img id="logo" src="img/logo.svg" alt="logo" width="75px" height="75px" onclick="renderArticle('profile')">
+            </a>
+        </header>
+
+        <main>
+            <div id="content"></div>
+            <a id="next-article" class="btn">Next Project <b>--></b></a>
+        </main>
+
+        <footer>
+            <div id="contacts" class="section">
+                <div class="container" id="contacts">
+                    <a href="https://github.com/ANDREYDEN" target="_blank" class="cell">
+                        <img src="img/logos/github.png" alt="github" width="50px" height="50px">
+                    </a>
+                    <a href="https://www.linkedin.com/in/andrii-denysenko-52176716b/" target="_blank" class="cell">
+                        <img src="img/logos/linkedin.png" alt="linkedin" width="50px" height="50px">
+                    </a>
+                </div>
+            </div>
+            <p id="copy"></p>
+        </footer>
+    </div>
 
     <!-- Components -->
 
@@ -116,7 +139,15 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </template>
 
+    <template id="collapsible-section">
+            <button id="collapser">
+                <slot name="title">Section Title</slot>
+            </button>
+        <div id="collapsible-content">
+            <slot name="content">Lorem Ipsum</slot>
         </div>
     </template>
 </body>

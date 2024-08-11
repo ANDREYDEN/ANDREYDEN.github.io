@@ -9,7 +9,10 @@
     --container-background: #242729;
     --border-radius: 0.3rem;
     --container-border-radius: 1rem;
-    --font-main: "Roboto Mono", monospace;
+    --secondary-font: "Roboto Mono", monospace;
+    --sm-width: 640px;
+    --md-width: 768px;
+    font-family: 'Open Sans', "Times New Roman", Times, sans-serif;
 }
 
 .testing {
@@ -17,7 +20,7 @@
     border: 1px solid red;
 }
 
-body {
+#page-content {
     display: grid;
     grid-template-rows: 15vh auto 20vh;
     grid-template-columns: auto;
@@ -31,7 +34,6 @@ body {
 #background {
     position: fixed;
     z-index: -999;
-    /* display: none; */
 }
 
 .container {
@@ -53,6 +55,15 @@ header {
     z-index: 2;
 }
 
+h2 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+h3 {
+    margin-top: 0.5rem;
+}
+
 a>* {
     text-decoration: underline;
 }
@@ -69,20 +80,36 @@ a:link {
 #content-list {
     top: 15vh;
     list-style-type: none;
-    padding-left: 1rem;
-    padding-top: 1rem;
-    font-family: var(--font-main);
+    padding: 1rem;
     font-size: 1.2rem;
-    display: inline-block;
+    border-radius: var(--border-radius);
+}
+
+#content-list::backdrop {
+    backdrop-filter: blur(10px);
+}
+
+#content-list * {
+    font-family: var(--secondary-font);
 }
 
 #content-list>li {
     cursor: pointer;
     line-height: 2rem;
+    text-decoration: none;
+    display: flex;
+    gap: 0.5rem;
+}
+
+#content-list a {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
 #content-list>li:hover {
-    padding-left: 1vw;
+    padding-left: 0.5rem;
 }
 
 .selected-nav {
@@ -93,27 +120,32 @@ a:link {
     content: '> ';
 }
 
-#previous {
-    top: 1rem;
-    left: 1rem;
+dialog {
+    min-width: 30vw;
+    padding: 0;
+    margin: auto;
+    border-radius: var(--border-radius);
+    outline: none;
 }
 
-#next {
-    top: 1rem;
-    right: 1rem;
+dialog h1 {
+    margin-bottom: 1rem;
 }
 
-@media only screen and (max-width: 900px) {
+#dialog-body {
+    padding: 2rem;
+}
 
-    /* Mobile version */
-    #previous>label,
-    #next>label {
-        display: none;
-    }
+#dialog-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 40px;
+    height: 40px;
+}
 
-    #content-list {
-        display: none;
-    }
+#settings::backdrop {
+    backdrop-filter: blur(5px);
 }
 
 main {
@@ -125,16 +157,15 @@ main {
     align-items: center;
 }
 
-.blog-post-title .blog-post-media {
-    text-align: center;
-}
-
 footer {
-    font-family: var(--font-main);
     padding: 1rem;
     background-color: var(--container-background);
     box-shadow: 0 -5px 10px var(--color-box-shadow);
     grid-area: footer;
+}
+
+footer * {
+    font-family: var(--secondary-font);
 }
 
 #contacts {
@@ -151,19 +182,12 @@ footer {
     color: #ffffff;
 }
 
-image-carousel {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .hidden {
     display: none;
 }
 
 .visible {
-    display: block;
+    display: block !important;
 }
 
 .disabled {
@@ -172,8 +196,20 @@ image-carousel {
 }
 
 code {
+    font-family: var(--secondary-font);
     background: black;
     color: white !important;
-    padding: 0.4em;
+    padding: 0.1em 0.4em;
     border-radius: 5px;
+}
+
+/* Mobile version */
+@media only screen and (max-width: 900px) {
+    html {
+        font-size: 14px;
+    }
+    
+    #content-list {
+        border: 1px solid black;
+    }
 }

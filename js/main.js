@@ -1,4 +1,12 @@
-let articles
+import { toggleClass } from "utils"
+
+/** @type {any[]} */
+export let articles
+let selectedArticleId
+/** @type {HTMLElement} */
+let contentList
+/** @type {HTMLElement} */
+let upButton
 
 /**
  * FUNCTION - replaces all of the element's content with the provided text 
@@ -15,48 +23,44 @@ function insertText({ id, text }) {
 }
 
 /**
- * 
+ * Renders the navigation buttons' content depending on the current article
  */
-function makeSelected(currentArticleId) {
-    const article = articles.find(article => article.id === currentArticleId)
-    const list = document.getElementById('content-list')
-    const className = 'selected-nav'
-
-    for (let el of list.childNodes) {
-        const elementText = el.childNodes[0].wholeText
-        el.classList.remove(className)
-        if (elementText === article.title) {
-            el.classList.add(className)
-        }
-    }
-}
-
-/**
- * FUNCTION - renders the navigation buttons' content depending on the current article
- */
-function renderNavigation(articleId) {
-    const articleIndex = articles.findIndex(article => article.id === articleId)
+function renderNavigation() {
+    const articleIndex = articles.findIndex(article => article.id === selectedArticleId)
 
     let buttonPrev = document.getElementById('previous')
     let buttonNext = document.getElementById('next')
+    let bottomButtonNext = document.getElementById('next-article')
+
+    if (articleIndex === 0) {
+        buttonPrev.classList.add('hidden')
+        buttonNext.classList.add('hidden')
+        bottomButtonNext.classList.add('hidden')
+        return
+    }
+
+    buttonPrev.classList.remove('hidden')
+    buttonNext.classList.remove('hidden')
+    bottomButtonNext.classList.remove('hidden')
 
     const LEN = articles.length
-    let previousArticle = articles[(LEN + ((articleIndex - 1) % LEN)) % LEN]
-    let nextArticle = articles[(articleIndex + 1) % LEN]
+    const previousArticle = articles[(LEN + ((articleIndex - 1) % LEN)) % LEN]
+    const nextArticle = articles[(articleIndex + 1) % LEN]
 
-    buttonPrev.setAttribute('value', previousArticle.id)
-    buttonNext.setAttribute('value', nextArticle.id)
-    buttonPrev.getElementsByTagName('label')[0].innerHTML = previousArticle.title
-    buttonNext.getElementsByTagName('label')[0].innerHTML = nextArticle.title
+    buttonPrev.setAttribute('href', `#${previousArticle.id}`)
+    buttonNext.setAttribute('href', `#${nextArticle.id}`)
+    bottomButtonNext.setAttribute('href', `#${nextArticle.id}`)
+    buttonPrev.getElementsByTagName('span')[0].innerHTML = previousArticle.title
+    buttonNext.getElementsByTagName('span')[0].innerHTML = nextArticle.title
 }
 
 /**
- * FUNCTION - renders the contents of an appropriate html article
- * ARGS
- *      title (str) - the title of the article to be rendered
+ * Renders the contents of an appropriate html article
+ * @param {number} articleId the id of the article to be rendered
  */
 async function renderArticle(articleId) {
-    renderNavigation(articleId)
+    renderContentList()
+    renderNavigation()
 
     const contentElement = document.getElementById('content')
 
@@ -65,34 +69,75 @@ async function renderArticle(articleId) {
     contentElement.innerHTML = ''
     contentElement.appendChild(post)
 
-    location.href = `#${articleId}`
     window.scrollTo(0, 0)
-
-    // change the state of the content list
-    makeSelected(articleId)
 }
 
-/**
- * FUNCTION - renders an article depending on the type of the nav button clicked
- * ARGS
- *      id (str) - the id of the button that is being clicked
- * RETURNS
- *      function - the instructions to be executed
- */
-function onNavButtonClick(id) {
-    return () => {
-        let button = document.getElementById(id)
-        let articleId = button.getAttribute('value')
-        renderArticle(articleId)
+function renderContentList() {
+    const contentList = document.getElementById('content-list')
+    contentList.innerHTML = ''
+    articles.forEach(article => {
+        const li = document.createElement('li')
+        const a = document.createElement('a')
+        a.innerText = article.title
+
+        a.setAttribute('href', `#${article.id}`)
+        a.addEventListener('click', () => {
+            const isPopover = contentList.hasAttribute('popover')
+            if (isPopover) {
+                contentList.togglePopover()
+            }
+        })
+        if (article.id === selectedArticleId) {
+            li.classList.add('selected-nav')
+        }
+        li.appendChild(a)
+        contentList.appendChild(li)
+    })
+}
+
+function handleRouteChange() {
+    const route = location.href.split('#')[1]
+
+    const article = articles.find(article => article.id === route)
+    const firstArticleId = articles[0].id
+    if (!article) {
+        location.href = `#${firstArticleId}`
+    }
+    selectedArticleId = article?.id ?? firstArticleId
+
+    renderArticle(selectedArticleId)
+}
+
+function handleWindowResize() {
+    const isMediumWidth = window.innerWidth <= 900
+    if (isMediumWidth ^ contentList.hasAttribute('popover')) {
+        contentList.toggleAttribute('popover')
     }
 }
 
-/**
- * FUNCTION - renders an article depending on the clicked list option
- */
-function onListOptionClick() {
-    const articleId = this.getAttribute('article-id')
-    renderArticle(articleId)
+function handleScroll() {
+    const scrolledDown = window.scrollY > 500
+    if (scrolledDown ^ upButton.classList.contains('visible')) {
+        toggleClass('up-button', 'visible')
+    }
+}
+
+function toggleAnimation() {
+    const isHidden = toggleClass('background', 'hidden')
+    localStorage.setItem('bg-animation-hidden', isHidden)
+}
+
+function loadFromLocalStorage() {
+    const isBackgroundHidden = localStorage.getItem('bg-animation-hidden') === 'true'
+
+    /** @type {HTMLInputElement} */
+    const backgroundSetting = document.getElementById('animation-toggle')
+    backgroundSetting.checked = !isBackgroundHidden
+
+    const background = document.getElementById('background')
+    if (isBackgroundHidden) {
+        background.classList.add('hidden')
+    }
 }
 
 window.onload = async () => {
@@ -100,53 +145,44 @@ window.onload = async () => {
     const allArticles = await response.json()
     articles = allArticles.filter(a => !a.hidden)
 
-    // render first article
-    renderArticle(articles[0].id)
+    loadFromLocalStorage()
+    handleRouteChange()
 
-    // render content list items
-    const contentList = document.getElementById('content-list')
-    articles.forEach((article, idx) => {
-        let li = document.createElement('li')
-        li.appendChild(document.createTextNode(article.title))
-        li.setAttribute('article-id', article.id)
-        if (idx == 0) {
-            li.classList.add('selected-nav')
-        }
-        contentList.appendChild(li)
-    })
+    contentList = document.getElementById('content-list')
 
     // render footer
     insertText({ id: 'copy', text: `&copy Andrii Denysenko, ${new Date().getFullYear()}` })
 
     // attach event listeners
+    window.addEventListener('hashchange', handleRouteChange)
 
-    window.addEventListener('hashchange', () => {
-        const route = location.href.split('#')[1]
+    window.addEventListener('resize', handleWindowResize)
+    handleWindowResize()
 
-        const article = articles.find(article => article.id === route)
-        if (!article) return
+    window.addEventListener('scroll', handleScroll)
 
-        renderArticle(article.id)
+    document.getElementById('animation-toggle').addEventListener('click', toggleAnimation)
+
+    /** @type {HTMLDialogElement} */
+    const settingsDialog = document.getElementById('settings')
+
+    document.getElementById('settings-button').addEventListener('click', () => {
+        settingsDialog.showModal()
     })
 
-    document
-        .getElementById('previous')
-        .addEventListener('click', onNavButtonClick('previous'))
+    document.getElementById('dialog-close').addEventListener('click', () => {
+        settingsDialog.close()
+    })
 
-    document
-        .getElementById('next')
-        .addEventListener('click', onNavButtonClick('next'))
+    document.querySelector('dialog').addEventListener('click', (e) => {
+        const backdropClicked = e.target === e.currentTarget
+        if (backdropClicked) {
+            settingsDialog.close()
+        }
+    })
 
-    document
-        .getElementById('next-article')
-        .addEventListener('click', onNavButtonClick('next'))
-
-    document
-        .getElementById('content-list')
-        .childNodes
-        .forEach(child => {
-            if (child.nodeName === 'LI') {
-                child.addEventListener('click', onListOptionClick.bind(child))
-            }
-        })
+    upButton = document.getElementById('up-button')
+    upButton.addEventListener('click', () => {
+        window.scrollTo({ top: 0 })
+    })
 }
