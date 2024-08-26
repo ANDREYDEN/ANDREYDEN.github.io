@@ -1,8 +1,23 @@
-<h2>Background</h2>
+<h2>Game Mechanics</h2>
 <p>
-    A game about mazes and light.
+    This game is a classic maze solver with a twist: the character is holding a torch that is slowly running out making the lit maze area smaller with every second. Once the torch is out completely, the character is deemed lost in the darkness. More complicated levels include locating keys to unlock the exit and avoiding ghosts that are wandering around the maze.
 </p>
 
+<video autoplay loop muted>
+    <source src="img/Spooky Maze/gameplay.mp4" type="video/mp4" />
+
+    [Gameplay Video]
+</video>
+
+<h2>Technical Challenges</h2>
+<p>
+    There were 2 particularly interesting technical problems to solve during the development of the game:
+
+    <ol>
+        <li><b>Maze Generation.</b> There are a lot of different ways to create mazes, so a few generation strategies are available in the game using variations of the DFS and BFS algorithms.</li>
+        <li><b>Level Replay.</b> One of the nice features in Spooky Maze is the ability to replay the level both forwards and backwards in time. This required storing all the individual moves of the character (as well as the moves of the NPCs) to replay them in either direction.</li>
+    </ol>
+</p>
 
 <image-carousel>
     <div slot="slides">
@@ -11,3 +26,8 @@
         <img src="img/Spooky Maze/3.png" alt="gameplay 3" width="250" />
     </div>
 </image-carousel>
+
+<h2>Background</h2>
+<p>
+    Spooky Maze was created as part of my work for the <a href="https://maplemana.com">Maple Mana</a> game studio. The game was supposed to be released for Halloween, hence the spooky theme.
+</p>
